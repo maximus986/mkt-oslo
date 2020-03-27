@@ -1,10 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `mkt-oslo`,
+    description: `Metakognitiv Terapi Oslo`,
+    author: `@AleksandarM986`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `WPGraphQL`,
+        fieldName: `wpgraphql`,
+        url: `http://staging.metakognitivterapi-oslo.no/graphql`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -18,8 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Metakognitiv Terapi-Oslo`,
+        short_name: `mkt-oslo`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
