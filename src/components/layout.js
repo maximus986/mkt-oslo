@@ -21,9 +21,11 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  console.log(data)
   return (
-    <main>{children}</main>
+    <>
+      <main>{children}</main>
+    </>
   )
 }
 
