@@ -25,6 +25,21 @@ exports.createResolvers = ({
         },
       },
     },
+    WPGraphQL_Avatar: {
+      imageFile: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: source.url,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        },
+      },
+    },
   })
 }
 
