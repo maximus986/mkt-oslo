@@ -19,6 +19,16 @@ module.exports = async ({ actions, graphql }) => {
               title
               id
               content
+              featuredImage {
+                imageFile {
+                  childImageSharp {
+                    fluid {
+                      src
+                    }
+                  }
+                }
+                sourceUrl
+              }
             }
           }
         }

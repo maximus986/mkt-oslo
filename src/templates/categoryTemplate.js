@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 const CategoryTemplate = props => {
   const { data: {
@@ -13,6 +14,7 @@ const CategoryTemplate = props => {
       {posts.nodes.map(post => (
         <div key={post.id}>
           <h4>{post.title}</h4>
+          <Img fluid={post.featuredImage.imageFile.childImageSharp.fluid} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
       ))}
@@ -34,6 +36,16 @@ export const pageQuery = graphql`
             title
             id
             content
+            featuredImage {
+              imageFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  }
+                }
+              }
+              sourceUrl
+            }
           }
         }
       }
