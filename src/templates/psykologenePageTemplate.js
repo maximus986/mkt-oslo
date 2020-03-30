@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Layout } from '../components/layout';
 
 const PsykologenePagesTemplate = props => {
   const { data: {
@@ -8,10 +9,10 @@ const PsykologenePagesTemplate = props => {
   } = props
   const { content } = page
   return (
-    <div>
+    <Layout>
       <h1>Psykologene TEMPLATE</h1>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
+    </Layout>
   );
 }
 
