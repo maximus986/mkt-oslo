@@ -6,6 +6,7 @@
  */
 
 import React from "react"
+import { Header } from '../components/common/header/header'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
   console.log(data)
   return (
     <>
+      <Header />
       <main>{children}</main>
     </>
   )
