@@ -1,11 +1,10 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { Header } from '../components/common/header/header'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from '@emotion/styled'
-
-
-import './layout.css'
+import { css, Global } from '@emotion/core'
 
 export const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,15 +19,48 @@ export const Layout = ({ children }) => {
   console.log(data)
   return (
     <>
+      {/* <Global
+        styles={css`
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body,
+          html,
+          #___gatsby {
+            height: 100%;
+          }
+        `}
+      /> */}
       <Header />
-      <Main>{children}</Main>
+      <main sx={{
+        marginTop: '228px',
+        h1: {
+          variant: 'text.heading1',
+        },
+        h4: {
+          variant: 'text.heading4',
+        },
+        h5: {
+          variant: 'text.heading5',
+        },
+        p: {
+          variant: 'text.paragraph'
+        },
+        ul: {
+          variant: 'text.list'
+        },
+        li: {
+          variant: 'text.listItem'
+        },
+        a: {
+          variant: 'text.link'
+        }
+      }}>{children}</main>
     </>
   )
 }
-
-const Main = styled.main`
-  margin-top: 228px;
-`;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

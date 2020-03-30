@@ -1,123 +1,135 @@
 export default {
-  // breakpoints: ['40em', '52em', '64em'],
-  // space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  // fonts: {
-  //   body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-  //   heading: 'inherit',
-  //   monospace: 'Menlo, monospace',
-  // },
-  // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
-  // fontWeights: {
-  //   body: 400,
-  //   heading: 700,
-  //   bold: 700,
-  // },
-  // lineHeights: {
-  //   body: 1.5,
-  //   heading: 1.125,
-  // },
-  // colors: {
-  //   text: '#000',
-  //   background: '#fff',
-  //   primary: '#07c',
-  //   secondary: '#30c',
-  //   muted: '#f6f6f6',
-  // },
-  // text: {
-  //   heading: {
-  //     fontFamily: 'heading',
-  //     lineHeight: 'heading',
-  //     fontWeight: 'heading',
-  //   },
-  // },
-  // styles: {
-  //   root: {
-  //     fontFamily: 'body',
-  //     lineHeight: 'body',
-  //     fontWeight: 'body',
-  //   },
-  //   h1: {
-  //     variant: 'text.heading',
-  //     fontSize: 5,
-  //   },
-  //   h2: {
-  //     variant: 'text.heading',
-  //     fontSize: 4,
-  //   },
-  //   h3: {
-  //     variant: 'text.heading',
-  //     fontSize: 3,
-  //   },
-  //   h4: {
-  //     variant: 'text.heading',
-  //     fontSize: 2,
-  //   },
-  //   h5: {
-  //     variant: 'text.heading',
-  //     fontSize: 1,
-  //   },
-  //   h6: {
-  //     variant: 'text.heading',
-  //     fontSize: 0,
-  //   },
-  //   pre: {
-  //     fontFamily: 'monospace',
-  //     overflowX: 'auto',
-  //     code: {
-  //       color: 'inherit',
-  //     },
-  //   },
-  //   code: {
-  //     fontFamily: 'monospace',
-  //     fontSize: 'inherit',
-  //   },
-  //   table: {
-  //     width: '100%',
-  //     borderCollapse: 'separate',
-  //     borderSpacing: 0,
-  //   },
-  //   th: {
-  //     textAlign: 'left',
-  //     borderBottomStyle: 'solid',
-  //   },
-  //   td: {
-  //     textAlign: 'left',
-  //     borderBottomStyle: 'solid',
-  //   },
-  // },
   colors: {
-    text: '#787976',
+    text: '#656565',
+    primary: '#fe7e17',
+    secondary: '#212121',
     background: '#fff',
-    primary: '#323232',
-    secondary: '#323232',
-    muted: '#c1cace',
-    heading: '#484a46',
-    modes: {
-      dark: {
-        text: '#fff',
-        background: '#000',
-        primary: '#0cf',
-      },
-    },
+    white: '#fff',
+    grey0: '#d2d2d2',
+    grey50: '#d9d9d9',
+    grey100: '#eaeaea',
+    grey150: '#efefef',
+    grey200: '#b6b6b6',
+    grey300: '#ccc',
+    grey400: '#686868',
+    grey500: '#808080',
+    grey600: '#898989',
+    grey700: '#999',
+    muted: '#f6f6f6',
+    black600: '#212121',
+    black700: '#323232'
   },
   fonts: {
-    body: 'Open Sans',
+    body: 'Lato,Roboto, "Helvetica Neue", sans-serif',
     heading: 'Montserrat',
-    monospace: 'Menlo, monospace',
+    author: 'Nothing You Could Do',
   },
+  breakpoints: ['576px', '768px', '992px', '1280px', '160rem'],
+  space: [0, 5, 8, 16, 18, 20, 25, 32, 64, 128, 256, 512],
+  fontSizes: [12, 15, 16, 18, 20, 24, 28, 32, 48, 64, 96],
   fontWeights: {
-    body: 400,
-    links: 600,
+    body: 300,
+    normal: 400,
     heading: 700,
     bold: 700,
   },
   lineHeights: {
-    body: 1.5,
+    body: 1.75,
     heading: 1.125,
   },
-  fontSizes: [2, 4, 14, 16, 20, 24, 32, 48, 64, 72],
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  transition: {
-    link: '0.3s ease',
+  text: {
+    heading: {
+      fontFamily: 'heading',
+      color: 'black700',
+      fontWeight: 'normal',
+    },
+    heading1: {
+      variant: 'text.heading',
+      fontSize: 8,
+      fontFamily: 'body',
+      fontWeight: 'body',
+      m: 0,
+    },
+    heading4: {
+      variant: 'text.heading',
+      fontSize: 3,
+      mt: 0,
+      mb: 5,
+    },
+    heading5: {
+      variant: 'text.heading',
+      fontSize: 1,
+      mt: 0,
+      mb: 5,
+    },
+    paragraph: {
+      mt: 0,
+      mb: 5
+    },
+    list: {
+      pl: 5,
+      mt: 0,
+      mb: 6,
+    },
+    listItem: {
+      mb: 1,
+      listStyleType: 'circle'
+    },
+    link: {
+      bg: 'transparent',
+      borderWidth: '1px',
+      borderBottomStyle: 'solid',
+      borderColor: 'primary',
+      transition: '0.2s linear',
+      textDecoration: 'none',
+      '&:hover': {
+        bg: 'rgba(0, 0, 0, 0.05)',
+        borderColor: 'black700',
+      }
+    }
   },
+  styles: {
+    root: {
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'body',
+      fontSize: 3
+    },
+    h1: {
+      variant: 'text.heading1',
+    },
+    h2: {
+      variant: 'text.heading',
+      fontSize: 4,
+    },
+    h3: {
+      variant: 'text.heading',
+      fontSize: 3,
+    },
+    h4: {
+      variant: 'text.heading',
+      fontSize: 2,
+    },
+    h5: {
+      variant: 'text.heading',
+      fontSize: 1,
+    },
+    h6: {
+      variant: 'text.heading',
+      fontSize: 0,
+    },
+    table: {
+      width: '100%',
+      borderCollapse: 'separate',
+      borderSpacing: 0,
+    },
+    th: {
+      textAlign: 'left',
+      borderBottomStyle: 'solid',
+    },
+    td: {
+      textAlign: 'left',
+      borderBottomStyle: 'solid',
+    },
+  }
 }
