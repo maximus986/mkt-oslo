@@ -75,7 +75,7 @@ const HeaderContainer = styled.header`
     props.animate ? '0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1)' : 'none'};
     padding: ${props => (props.animate ? '1rem 3.2rem' : '3.4rem 3.2rem')};
     background: ${props =>
-    props.animate ? props.colors.secondary : 'transparent'};
+    props.animate ? props.colors.muted : 'transparent'};
   }
   @media (min-width: 1200px) {
     padding: 3.4rem 8rem;
