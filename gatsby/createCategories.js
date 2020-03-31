@@ -22,7 +22,7 @@ module.exports = async ({ actions, graphql }) => {
               featuredImage {
                 imageFile {
                   childImageSharp {
-                    fluid {
+                    fluid(maxHeight: 750, maxWidth: 870) {
                       src
                     }
                   }

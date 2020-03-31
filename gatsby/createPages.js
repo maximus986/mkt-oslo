@@ -19,7 +19,7 @@ module.exports = async ({ actions, graphql }) => {
         nodes {
           id
           pageId
-          title
+          pageTitle: title
           uri
         }
       }
