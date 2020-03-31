@@ -1,4 +1,6 @@
 export default {
+  initialColorModeName: 'light',
+  useBodyStyles: true,
   colors: {
     text: '#656565',
     primary: '#fe7e17',
@@ -17,7 +19,14 @@ export default {
     grey700: '#999',
     muted: '#f6f6f6',
     black600: '#212121',
-    black700: '#323232'
+    black700: '#323232',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      }
+    }
   },
   fonts: {
     body: 'Lato,Roboto, "Helvetica Neue", sans-serif',
@@ -95,42 +104,6 @@ export default {
       lineHeight: 'body',
       fontWeight: 'body',
       fontSize: 3
-    },
-    h1: {
-      variant: 'text.heading1',
-    },
-    h2: {
-      variant: 'text.heading',
-      fontSize: 4,
-    },
-    h3: {
-      variant: 'text.heading',
-      fontSize: 3,
-    },
-    h4: {
-      variant: 'text.heading',
-      fontSize: 2,
-    },
-    h5: {
-      variant: 'text.heading',
-      fontSize: 1,
-    },
-    h6: {
-      variant: 'text.heading',
-      fontSize: 0,
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'separate',
-      borderSpacing: 0,
-    },
-    th: {
-      textAlign: 'left',
-      borderBottomStyle: 'solid',
-    },
-    td: {
-      textAlign: 'left',
-      borderBottomStyle: 'solid',
     },
   }
 }
