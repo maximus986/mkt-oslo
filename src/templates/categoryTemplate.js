@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Layout } from '../components/layout';
+import { Layout } from '../components/layout'
+import { Container } from '../components/common/container'
 
 const CategoryTemplate = props => {
   const { data: {
@@ -12,13 +13,15 @@ const CategoryTemplate = props => {
   return (
     <Layout>
       <h1>Category: {name}</h1>
-      {posts.nodes.map(post => (
-        <div key={post.id}>
-          <h4>{post.title}</h4>
-          <Img fluid={post.featuredImage.imageFile.childImageSharp.fluid} />
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </div>
-      ))}
+      <Container>
+        {posts.nodes.map(post => (
+          <div key={post.id}>
+            <h4>{post.title}</h4>
+            <Img fluid={post.featuredImage.imageFile.childImageSharp.fluid} />
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </div>
+        ))}
+      </Container>
     </Layout>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby'
-import { Layout } from '../components/layout';
+import { Layout } from '../components/layout'
+import { Container } from '../components/common/container'
 
 const PostTemplate = props => {
   const { data: {
@@ -10,8 +11,10 @@ const PostTemplate = props => {
   const { content } = post
   return (
     <Layout>
-      <h1>POST</h1>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <Container>
+        <h1>POST</h1>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </Container>
     </Layout>
   );
 }
