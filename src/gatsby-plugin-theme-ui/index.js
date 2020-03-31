@@ -17,9 +17,9 @@ export default {
     grey500: '#808080',
     grey600: '#898989',
     grey700: '#999',
-    muted: '#f6f6f6',
     black600: '#212121',
     black700: '#323232',
+    rgbaWhite: 'rgba(255, 255, 255, 0.9)',
     modes: {
       dark: {
         text: '#fff',
@@ -33,9 +33,9 @@ export default {
     heading: 'Montserrat',
     author: 'Nothing You Could Do',
   },
-  breakpoints: ['576px', '768px', '992px', '1280px', '160rem'],
-  space: [0, 5, 8, 16, 18, 20, 25, 30, 64, 128, 256, 512],
-  fontSizes: [12, 15, 16, 18, 20, 24, 28, 32, 48, 64, 96],
+  breakpoints: ['576px', '768px', '1030px', '1280px', '1600px'],
+  space: [0, 5, 8, 16, 18, 20, 25, 30, 48, 64, 128, 256, 512],
+  fontSizes: [13, 15, 16, 18, 20, 24, 28, 32, 40, 48, 64, 96],
   fontWeights: {
     body: 300,
     normal: 400,
@@ -54,7 +54,7 @@ export default {
     },
     heading1: {
       variant: 'text.heading',
-      fontSize: 8,
+      fontSize: [8, 9],
       fontFamily: 'body',
       fontWeight: 'body',
       m: 0,
@@ -105,5 +105,8 @@ export default {
       fontWeight: 'body',
       fontSize: 3
     },
+  },
+  transition: {
+    link: '0.2s linear'
   }
 }

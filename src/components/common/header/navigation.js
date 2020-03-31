@@ -28,21 +28,35 @@ export const Navigation = ({ showMenu, onNavigate }) => {
   return (
     <NavigationContainer>
       <NavLinks
+        sx={{
+          p: 0,
+          m: 0
+        }}
         open={showMenu}
       >
         {menuItems.nodes.map((link) => (
-          <ListItem key={link.id} {...{ colors }}>
+          <ListItem key={link.id} {...{ colors }} sx={{
+            transition: 'link',
+          }}>
             <NavLink
               to={createLocalLink(link.url)}
+              activeClassName="active"
               sx={{
                 fontFamily: 'body',
-                fontWeight: 'links',
+                fontWeight: 'normal',
+                fontSize: 0,
+                color: 'black700',
+                p: '10px',
                 transition: 'link',
-                '&:hover': {
+                '&.active, &:hover': {
                   color: 'primary',
-                },
+                  '&:before': {
+                    right: ['100%', null, null, 0]
+                  }
+                }
               }}
               onClick={onNavigate}
+              {...{ colors }}
             >
               {link.label}
             </NavLink>
@@ -55,38 +69,59 @@ export const Navigation = ({ showMenu, onNavigate }) => {
 
 const NavigationContainer = styled.nav`
   flex: 1;
-  margin-top: 1.2rem;
-  @media (min-width: 992px) {
-    margin-top: 0;
-  }
 `;
 
 const NavLinks = styled.ul`
   overflow: hidden;
-  transition: height 0.35s ease;
-  height: ${props => (props.open ? '258px' : '0')};
-  @media (min-width: 992px) {
+  max-height: 616px;
+  width: 85%;
+  transition: height 0.3s ease;
+  height: ${props => (props.open ? '300px' : '0')};
+  @media (min-width: 1030px) {
     height: auto;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 `;
 
 const ListItem = styled.li`
     list-style-type: none;
-    color: #323232;
-    &.active {
-      color: ${props => props.colors.primary};
+    border-bottom: 1px solid ${props => props.colors.grey150};
+    position: relative;
+    @media (min-width: 1030px) {
+      border-bottom: none;
+        margin-left: 30px;
+    }
+    @media (min-width: 1280px) {
+        margin-left: 45px;
     }
   }
 `;
 
 const NavLink = styled(Link)`
-  display: block;
-  font-size: 1.4rem;
   text-transform: uppercase;
-  padding: 1rem 1.2rem;
-  color: inherit;
-  @media (min-width: 992px) {
-    padding: 0.4rem 1.2rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: ${props => props.colors.primary};
+    height: 1px;
+    transition: right 0.2s ease-out;
+  }
+  @media (min-width: 1030px) {
+    padding: 3px 0 5px;
   }
 `;
