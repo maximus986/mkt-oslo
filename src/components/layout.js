@@ -4,7 +4,6 @@ import React from 'react'
 import { Header } from '../components/common/header/header'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { css, Global } from '@emotion/core'
 
 export const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -19,20 +18,6 @@ export const Layout = ({ children }) => {
   console.log(data)
   return (
     <>
-      {/* <Global
-        styles={css`
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-          body,
-          html,
-          #___gatsby {
-            height: 100%;
-          }
-        `}
-      /> */}
       <Header />
       <main sx={{
         marginTop: '228px',
