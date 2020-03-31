@@ -4,16 +4,19 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Container } from '../components/common/container'
 import { Grid } from 'theme-ui'
+import SEO from '../components/seo'
 
 const BehandlingPagesTemplate = props => {
   const { data: {
     wpgraphql: { page }
   }
   } = props
-  const { content } = page
+
+  const { content, pageTitle } = page
 
   return (
     <Layout>
+      <SEO title={pageTitle} />
       <Container>
         <Grid
           gap={7}
@@ -33,7 +36,7 @@ export const pageQuery = graphql`
   query GET_BEHANDLING_PAGE($id: ID!) {
     wpgraphql {
       page(id: $id) {
-        title
+        pageTitle: title
         content
         uri
       }

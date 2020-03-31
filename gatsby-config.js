@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `mkt-oslo`,
+    title: `Metakognitiv Terapi Oslo`,
     description: `Metakognitiv Terapi Oslo`,
     author: `@AleksandarM986`,
   },
