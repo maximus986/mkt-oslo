@@ -6,7 +6,7 @@ import { createLocalLink } from '../../../utils/index'
 
 export const Navigation = ({ showMenu, onNavigate }) => {
   const {
-    theme: { colors },
+    theme: { colors, space },
   } = useThemeUI();
   const data = useStaticQuery(graphql`
     {
@@ -23,20 +23,28 @@ export const Navigation = ({ showMenu, onNavigate }) => {
       }
     }
   `)
-  const { wpgraphql: { menu: { menuItems } } } = data
+  const { wpgraphql:
+    { menu:
+      { menuItems }
+    }
+  } = data
 
   return (
     <NavigationContainer>
       <NavLinks
         sx={{
           p: 0,
-          m: 0
+          m: 0,
+          transition: 'header',
+          height: showMenu ? `${space[19]}px` : '0',
+          maxHeight: `${space[21]}px`
         }}
         open={showMenu}
       >
         {menuItems.nodes.map((link) => (
           <ListItem key={link.id} {...{ colors }} sx={{
             transition: 'link',
+            ml: [0, 0, 0, 10, 12]
           }}>
             <NavLink
               to={createLocalLink(link.url)}
@@ -46,7 +54,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                 fontWeight: 'normal',
                 fontSize: 0,
                 color: 'black700',
-                p: '10px',
+                p: 4,
                 transition: 'link',
                 '&.active, &:hover': {
                   color: 'primary',
@@ -73,10 +81,7 @@ const NavigationContainer = styled.nav`
 
 const NavLinks = styled.ul`
   overflow: hidden;
-  max-height: 616px;
   width: 85%;
-  transition: height 0.3s ease;
-  height: ${props => (props.open ? '300px' : '0')};
   @media (min-width: 1030px) {
     height: auto;
     display: flex;
@@ -92,10 +97,6 @@ const ListItem = styled.li`
     position: relative;
     @media (min-width: 1030px) {
       border-bottom: none;
-        margin-left: 30px;
-    }
-    @media (min-width: 1280px) {
-        margin-left: 45px;
     }
   }
 `;

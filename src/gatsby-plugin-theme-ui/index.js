@@ -34,7 +34,7 @@ export default {
     author: 'Nothing You Could Do',
   },
   breakpoints: ['576px', '768px', '1030px', '1280px', '1600px'],
-  space: [0, 5, 8, 16, 18, 20, 25, 30, 48, 64, 128, 256, 512],
+  space: [0, 3, 5, 8, 10, 16, 18, 20, 23, 25, 30, 40, 45, 47, 48, 64, 128, 135, 256, 300, 512, 616],
   fontSizes: [13, 15, 16, 18, 20, 24, 28, 32, 40, 48, 64, 96],
   fontWeights: {
     body: 300,
@@ -57,31 +57,31 @@ export default {
       fontSize: [8, 9],
       fontFamily: 'body',
       fontWeight: 'body',
-      m: 0,
+      m: 0, // 0
     },
     heading4: {
       variant: 'text.heading',
       fontSize: 3,
-      mt: 0,
-      mb: 5,
+      mt: 0, // 0
+      mb: 7, // 20
     },
     heading5: {
       variant: 'text.heading',
       fontSize: 1,
-      mt: 0,
-      mb: 5,
+      mt: 0, // 0
+      mb: 7, // 20
     },
     paragraph: {
-      mt: 0,
-      mb: 5
+      mt: 0, // 0
+      mb: 7 // 20
     },
     list: {
-      pl: 5,
-      mt: 0,
-      mb: 6,
+      pl: 7, // 20
+      mt: 0, // 0
+      mb: 9, // 25
     },
     listItem: {
-      mb: 1,
+      mb: 2, // 5
       listStyleType: 'circle'
     },
     link: {
@@ -107,6 +107,7 @@ export default {
     },
   },
   transition: {
-    link: '0.2s linear'
+    link: '0.2s linear',
+    header: '0.3s linear'
   }
 }
