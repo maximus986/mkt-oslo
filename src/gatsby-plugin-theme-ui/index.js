@@ -25,7 +25,7 @@ export default {
     author: 'Nothing You Could Do',
   },
   breakpoints: ['576px', '768px', '992px', '1280px', '160rem'],
-  space: [0, 5, 8, 16, 18, 20, 25, 32, 64, 128, 256, 512],
+  space: [0, 5, 8, 16, 18, 20, 25, 30, 64, 128, 256, 512],
   fontSizes: [12, 15, 16, 18, 20, 24, 28, 32, 48, 64, 96],
   fontWeights: {
     body: 300,
@@ -82,6 +82,7 @@ export default {
       borderColor: 'primary',
       transition: '0.2s linear',
       textDecoration: 'none',
+      color: 'inherit',
       '&:hover': {
         bg: 'rgba(0, 0, 0, 0.05)',
         borderColor: 'black700',
