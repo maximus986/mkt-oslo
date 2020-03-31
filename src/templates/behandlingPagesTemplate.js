@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Container } from '../components/common/container'
@@ -18,9 +17,9 @@ const BehandlingPagesTemplate = props => {
       <Container>
         <Grid
           gap={7}
-          columns={[1, 1, '1fr 1fr', '1fr 2fr']}>
-          <aside>Sidebar</aside>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          columns={[1, 1, '1fr 2fr', '1fr 2fr', '3fr 9fr']}>
+          <aside sx={{ bg: 'yellow' }}>Sidebar</aside>
+          <div sx={{ bg: '#ccc' }} dangerouslySetInnerHTML={{ __html: content }} />
         </Grid>
       </Container>
     </Layout>
