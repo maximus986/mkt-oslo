@@ -1,6 +1,10 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/layout';
+import { Layout } from '../components/layout'
+import { Container } from '../components/common/container'
+import { Grid } from 'theme-ui'
 
 const BehandlingPagesTemplate = props => {
   const { data: {
@@ -8,10 +12,17 @@ const BehandlingPagesTemplate = props => {
   }
   } = props
   const { content } = page
+
   return (
     <Layout>
-      <h1>BEHANDLING TEMPLATE</h1>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <Container>
+        <Grid
+          gap={7}
+          columns={[1, 1, '1fr 1fr', '1fr 2fr']}>
+          <aside>Sidebar</aside>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </Grid>
+      </Container>
     </Layout>
   );
 }
