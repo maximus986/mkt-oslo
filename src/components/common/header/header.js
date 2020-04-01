@@ -61,7 +61,7 @@ export const Header = () => {
                 alt="Site logo"
                 animate={animateNavbar}
                 sx={{
-                  width: animateNavbar ? 'auto' : `${space[17]}px`,
+                  width: animateNavbar ? 'auto' : `${space[18]}px`,
                   height: animateNavbar ? `${space[9]}px` : `${space[7]}px`
                 }}
               />

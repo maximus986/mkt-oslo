@@ -34,8 +34,8 @@ export default {
     author: 'Nothing You Could Do',
   },
   breakpoints: ['576px', '768px', '1030px', '1280px', '1600px'],
-  space: [0, 3, 5, 8, 10, 16, 18, 20, 23, 25, 30, 40, 45, 47, 48, 64, 128, 135, 256, 301, 512, 616],
-  fontSizes: [13, 15, 16, 18, 20, 24, 28, 32, 40, 48, 64, 96],
+  space: [0, 3, 5, 8, 10, 16, 18, 20, 23, 25, 30, 40, 45, 47, 48, 60, 90, 128, 135, 256, 301, 512, 616],
+  fontSizes: [13, 15, 16, 18, 20, 24, 28, 32, 36, 40, 48, 60, 96],
   fontWeights: {
     body: 300,
     normal: 400,
@@ -43,6 +43,7 @@ export default {
     bold: 700,
   },
   lineHeights: {
+    reset: 1,
     body: 1.75,
     heading: 1.125,
   },
@@ -54,20 +55,28 @@ export default {
     },
     heading1: {
       variant: 'text.heading',
-      fontSize: [8, 9],
+      fontSize: [9, 10], // 40, 48
       fontFamily: 'body',
       fontWeight: 'body',
       m: 0, // 0
     },
+    heading2: {
+      variant: 'text.heading',
+      fontSize: [8, null, 10], // 36, 48
+      fontFamily: 'body',
+      fontWeight: 'body',
+      m: 0, // 0
+      lineHeight: 'reset'
+    },
     heading4: {
       variant: 'text.heading',
-      fontSize: 3,
+      fontSize: 3, //18
       mt: 0, // 0
       mb: 7, // 20
     },
     heading5: {
       variant: 'text.heading',
-      fontSize: 1,
+      fontSize: 1, // 15
       mt: 0, // 0
       mb: 7, // 20
     },
@@ -106,6 +115,9 @@ export default {
       fontSize: 3,
       h1: {
         variant: 'text.heading1'
+      },
+      h2: {
+        variant: 'text.heading2'
       },
       h4: {
         variant: 'text.heading4'
