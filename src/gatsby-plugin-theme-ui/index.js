@@ -103,7 +103,28 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-      fontSize: 3
+      fontSize: 3,
+      h1: {
+        variant: 'text.heading1'
+      },
+      h4: {
+        variant: 'text.heading4'
+      },
+      h5: {
+        variant: 'text.heading5'
+      },
+      p: {
+        variant: 'text.paragraph'
+      },
+      ul: {
+        variant: 'text.list'
+      },
+      li: {
+        variant: 'text.listItem'
+      },
+      a: {
+        variant: 'text.link'
+      }
     },
   },
   transition: {

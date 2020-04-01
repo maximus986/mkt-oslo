@@ -55,7 +55,7 @@ export const Header = () => {
           alignItems: ['stretch', 'stretch', 'stretch', 'center']
         }}>
           <HeaderActionWrapper>
-            <Link to="/" sx={{ lineHeight: 0 }}>
+            <Link to="/" sx={{ lineHeight: 0, border: 'none' }}>
               <Img
                 src={logo}
                 alt="Site logo"

@@ -58,6 +58,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                 transition: 'link',
                 '&.active, &:hover': {
                   color: 'primary',
+                  bg: 'transparent',
                   '&:before': {
                     right: ['100%', null, null, 0]
                   }
@@ -111,6 +112,7 @@ const NavLink = styled(Link)`
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
   overflow: hidden;
+  border: none;
   &:before {
     content: "";
     position: absolute;
