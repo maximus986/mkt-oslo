@@ -2,6 +2,7 @@
 import { jsx, Grid } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { SectionContainer } from '../common/sectionContainer';
+import { Container } from '../common/container';
 import styled from '@emotion/styled'
 
 export const fragment = graphql`
@@ -29,40 +30,42 @@ export const fragment = graphql`
 export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, desktopDescription, mobileDescription }) => {
   return (
     <SectionContainer title={sectiontitle}>
-      <Grid
-        gap={[10, null, null, 16]}
-        columns={[1, 1, '1fr 1fr']}
-        sx={{
-          mt: [null, null, null, 17],
-          mb: [10, null, null, 15]
-        }}>
-        <InfoContent dangerouslySetInnerHTML={{ __html: primaryInfo }} sx={{ textAlign: 'justify' }} />
-        <InfoContent dangerouslySetInnerHTML={{ __html: secondaryInfo }} sx={{ textAlign: 'justify' }} />
-      </Grid>
-      <Grid
-        gap={[10, null, null, 16]}
-        columns={[1, 1, '1fr 1fr 1fr']}>
-        {
-          desktopDescription.map((item, i) => (
-            <div key={i} sx={{
-              display: ['none', 'none', 'block']
-            }}>
-              <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
-              <div dangerouslySetInnerHTML={{ __html: item.text }} />
-            </div>
-          ))
-        }
-        {
-          mobileDescription.map((item, i) => (
-            <div key={i} sx={{
-              display: ['block, block', 'block', 'none']
-            }}>
-              <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
-              <div dangerouslySetInnerHTML={{ __html: item.text }} />
-            </div>
-          ))
-        }
-      </Grid>
+      <Container>
+        <Grid
+          gap={[10, null, null, 16]}
+          columns={[1, 1, '1fr 1fr']}
+          sx={{
+            mt: [null, null, null, 17],
+            mb: [10, null, null, 15]
+          }}>
+          <InfoContent dangerouslySetInnerHTML={{ __html: primaryInfo }} sx={{ textAlign: [null, null, 'justify'] }} />
+          <InfoContent dangerouslySetInnerHTML={{ __html: secondaryInfo }} sx={{ textAlign: [null, null, 'justify'] }} />
+        </Grid>
+        <Grid
+          gap={[10, null, null, 16]}
+          columns={[1, 1, '1fr 1fr 1fr']}>
+          {
+            desktopDescription.map((item, i) => (
+              <div key={i} sx={{
+                display: ['none', 'none', 'block']
+              }}>
+                <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
+                <div dangerouslySetInnerHTML={{ __html: item.text }} />
+              </div>
+            ))
+          }
+          {
+            mobileDescription.map((item, i) => (
+              <div key={i} sx={{
+                display: ['block, block', 'block', 'none']
+              }}>
+                <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
+                <div dangerouslySetInnerHTML={{ __html: item.text }} />
+              </div>
+            ))
+          }
+        </Grid>
+      </Container>
     </SectionContainer>
   )
 }
