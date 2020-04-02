@@ -1,16 +1,22 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx, Grid } from 'theme-ui'
 import { graphql } from 'gatsby'
+import { SectionContainer } from '../common/sectionContainer'
+import { Container } from '../common/container'
+import { HeadingLine } from '../common/headingLine'
+import Image from 'gatsby-image'
+
 
 export const fragment = graphql`
   fragment AboutSection on WPGraphQL_Page_Sections_Content_About {
-    descrtiption
+    description
     title
     image {
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid {
-            src
+          fluid(maxWidth: 500, maxHeight: 246) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -18,11 +24,22 @@ export const fragment = graphql`
   }
 `
 
-export const About = () => {
+export const About = ({ description, title, image: { imageFile: { childImageSharp: { fluid } } } }) => {
   return (
-    <div>
-      About
-    </div>
+    <SectionContainer title={title}>
+      <Container>
+        <Grid
+          gap={[8, null, 10, 15]}
+          columns={[1, 1, '1fr 1fr']}
+          sx={{ alignItems: [null, null, 'start'] }}
+        >
+          <figure sx={{ my: 0, maxWidth: '500px', maxHeight: '246px' }}>
+            <Image fluid={fluid} alt="Some Image" /> {/* TODO Add alt */}
+          </figure>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </Grid>
+      </Container>
+    </SectionContainer>
   )
 }
 
