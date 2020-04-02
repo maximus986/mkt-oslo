@@ -50,7 +50,7 @@ export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, desktopDescr
                 display: ['none', 'none', 'block']
               }}>
                 <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
-                <div dangerouslySetInnerHTML={{ __html: item.text }} />
+                <div dangerouslySetInnerHTML={{ __html: item.text }} sx={{ p: { m: 0 } }} />
               </div>
             ))
           }
