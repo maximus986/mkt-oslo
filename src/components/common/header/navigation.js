@@ -36,7 +36,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
           p: 0,
           m: 0,
           transition: 'header',
-          height: showMenu ? `${space[19]}px` : '0',
+          height: showMenu ? `${space[20]}px` : '0',
           maxHeight: `${space[21]}px`
         }}
         open={showMenu}
