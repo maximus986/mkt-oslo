@@ -5,6 +5,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { Container } from '../common/container'
 import styled from '@emotion/styled'
 import Image from 'gatsby-image'
+import { parseContentWithLinks } from '../../utils/index'
 
 export const fragment = graphql`
   fragment HeroSection on WPGraphQL_Page_Sections_Content_Hero {
@@ -37,6 +38,7 @@ export const Hero = ({
     }
   }
 }) => {
+  const parsedDescription = parseContentWithLinks(description)
   return (
     <StyledBackgroundImage fluid={fluid} alt="Bg Image" >
       <Container>
@@ -58,14 +60,12 @@ export const Hero = ({
             fontFamily: 'body',
             fontWeight: 'body'
           }}>{title}</h4>
-          <div
-            dangerouslySetInnerHTML={{ __html: description }}
-            sx={{
-              p: {
-                fontSize: 5,
-                lineHeight: '42px'
-              }
-            }} />
+          <div sx={{
+            p: {
+              fontSize: 5,
+              lineHeight: '42px'
+            }
+          }} >{parsedDescription}</div>
         </DesktopContent>
       </Container>
     </StyledBackgroundImage>
