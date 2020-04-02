@@ -60,7 +60,6 @@ module.exports = async ({ actions, graphql }) => {
   await fetchCategories({ first: 100 }).then(allCategories => {
     const categoryTemplate = path.resolve(`./src/templates/categoryTemplate.js`)
     allCategories.map(category => {
-      console.log(`create category: ${category.slug}`)
       createPage({
         path: `/blogg/category/${category.slug}`,
         component: categoryTemplate,

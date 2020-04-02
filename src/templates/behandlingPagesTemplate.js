@@ -15,8 +15,6 @@ const BehandlingPagesTemplate = props => {
 
   const { content, pageTitle, uri } = page
   const isRootBehandling = uri === 'behandling/'
-  console.log(isRootBehandling)
-  console.log(uri)
   return (
     <Layout>
       <SEO title={pageTitle} />

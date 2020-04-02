@@ -65,14 +65,12 @@ module.exports = async ({ actions, graphql }) => {
 
     filteredAllPages.map(page => {
       if (page.uri.includes(`behandling`)) {
-        console.log(`create page: ${page.uri}`)
         createPage({
           path: `/${page.uri}`,
           component: behandlingPageTemplate,
           context: page
         })
       } else {
-        console.log(`create page: ${page.uri}`)
         createPage({
           path: `/${page.uri}`,
           component: psykologenePageTemplate,

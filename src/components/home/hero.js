@@ -39,7 +39,6 @@ export const Hero = ({
   }
 }) => {
   const theme = useThemeUI()
-  console.log(theme)
   return (
     <StyledBackgroundImage fluid={fluid} alt="Bg Image" >
       <Container>

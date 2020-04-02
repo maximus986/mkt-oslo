@@ -21,7 +21,6 @@ export const fragment = graphql`
 `
 
 export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, description }) => {
-  console.log(description)
   return (
     <SectionContainer title={sectiontitle}>
       <Grid

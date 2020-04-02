@@ -48,7 +48,6 @@ module.exports = async ({ actions, graphql }) => {
   await fetchPosts({ first: 100, after: null }).then(allPosts => {
     const pageTemplate = path.resolve(`./src/templates/postTemplate.js`)
     allPosts.map(post => {
-      console.log(`create post: ${post.uri}`)
       createPage({
         path: `/blogg/${post.uri}`,
         component: pageTemplate,
