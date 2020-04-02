@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import { Container } from '../common/container'
