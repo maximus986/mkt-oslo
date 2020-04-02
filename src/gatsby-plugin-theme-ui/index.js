@@ -67,6 +67,14 @@ export default {
       m: 0, // 0
       lineHeight: 'reset'
     },
+    heading3: {
+      variant: 'text.heading',
+      fontSize: [3], // 36, 48
+      fontFamily: 'body',
+      fontWeight: 'body',
+      m: 0, // 0
+      lineHeight: 'reset'
+    },
     heading4: {
       variant: 'text.heading',
       fontSize: 3, //18
@@ -140,6 +148,7 @@ export default {
   },
   transition: {
     link: '0.2s linear',
-    header: '0.3s linear'
+    header: '0.3s linear',
+    imageLink: '0.4s linear'
   }
 }

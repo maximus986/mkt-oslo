@@ -9,6 +9,7 @@ import { Quotes } from '../components/home/quotes'
 import { About } from '../components/home/about'
 import { PsychologistInfo } from '../components/home/psychologistInfo'
 import { Welcome } from '../components/home/welcome'
+import { PostListSection } from '../components/home/postListSection'
 
 export const PAGE_QUERY = graphql`
   {
@@ -35,21 +36,6 @@ export const PAGE_QUERY = graphql`
           }
         }
       }
-      posts(first: 6) {
-        nodes {
-          date
-          title
-          slug
-          postId
-          categories {
-            nodes {
-              slug
-              name
-            }
-          }
-        }
-      }
-
     }
   }
 `;
@@ -82,7 +68,7 @@ const IndexPage = ({ data }) => {
             return <p>Something went wrong. Please try again.</p>;
         }
       })}
-      <h2>BLOGS</h2>
+      <PostListSection />
     </Layout>
   )
 }
