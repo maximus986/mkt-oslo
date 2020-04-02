@@ -11,8 +11,6 @@ export const fragment = graphql`
 `
 
 export const Quotes = ({ quote, quoteAuthor }) => {
-  console.log(quote, quoteAuthor);
-
   return (
     <div sx={{
       py: ['70px', null, '100px'],
