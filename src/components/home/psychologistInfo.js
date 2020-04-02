@@ -27,6 +27,8 @@ const mapLinkLabelToSlugLabel = (linkLabel) => {
       return 'Blogg';
     case 'Kontakt':
       return 'Kontakt';
+    default:
+      return null;
   }
 }
 
