@@ -1,17 +1,53 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx, Flex } from 'theme-ui'
 import { graphql } from 'gatsby'
+import { Container } from '../common/container'
 
 export const fragment = graphql`
   fragment QuotesSection on WPGraphQL_Page_Sections_Content_Quotes {
     quote
-    quoteauthor
+    quoteAuthor: quoteauthor
   }
 `
 
-export const Quotes = () => {
+export const Quotes = ({ quote, quoteAuthor }) => {
+  console.log(quote, quoteAuthor);
+
   return (
-    <div>
-      Quotes
+    <div sx={{
+      py: ['70px', null, '100px'],
+      bg: 'secondary',
+      color: 'white',
+
+    }}>
+      <Container>
+        <Flex sx={{
+          placeItems: 'center',
+          flexDirection: 'column',
+          width: [null, null, null, '80%', null, '100%'],
+          mx: 'auto'
+        }}>
+          <div
+            dangerouslySetInnerHTML={{ __html: quote }}
+            sx={{
+              fontStyle: 'italic',
+              fontSize: 5,
+              letterSpacing: '1.5px'
+            }}
+          />
+          <div
+            dangerouslySetInnerHTML={{ __html: quoteAuthor }}
+            sx={{
+              color: 'grey200',
+              fontFamily: 'author',
+              fontSize: '30px',
+              letterSpacing: '2px',
+              alignSelf: 'flex-end',
+              mr: ['50px', null, null, '395px']
+            }}
+          />
+        </Flex>
+      </Container>
     </div>
   )
 }
