@@ -3,7 +3,6 @@ import { jsx, Grid } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { SectionContainer } from '../common/sectionContainer'
 import { Container } from '../common/container'
-import { HeadingLine } from '../common/headingLine'
 import Image from 'gatsby-image'
 import { parseContentWithLinks } from '../../utils/index'
 
