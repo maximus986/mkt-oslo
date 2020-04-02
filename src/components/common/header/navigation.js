@@ -54,7 +54,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                 fontFamily: 'body',
                 fontWeight: 'normal',
                 fontSize: 0,
-                color: 'black700',
+                color: 'mainDark',
                 p: 4,
                 pb: 1,
                 transition: 'link',

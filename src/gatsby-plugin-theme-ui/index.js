@@ -6,6 +6,7 @@ export default {
     primary: '#fe7e17',
     secondary: '#212121',
     background: '#fff',
+    mainDark: '#323232',
     white: '#fff',
     grey0: '#d2d2d2',
     grey50: '#d9d9d9',
@@ -17,8 +18,6 @@ export default {
     grey500: '#808080',
     grey600: '#898989',
     grey700: '#999',
-    black600: '#212121',
-    black700: '#323232',
     rgbaWhite: 'rgba(255, 255, 255, 0.9)',
     modes: {
       dark: {
@@ -50,7 +49,7 @@ export default {
   text: {
     heading: {
       fontFamily: 'heading',
-      color: 'black700',
+      color: 'mainDark',
       fontWeight: 'normal',
     },
     heading1: {
@@ -103,7 +102,7 @@ export default {
       color: 'inherit',
       '&:hover': {
         bg: 'rgba(0, 0, 0, 0.05)',
-        borderColor: 'black700',
+        borderColor: 'mainDark',
       }
     }
   },

@@ -118,8 +118,8 @@ const MenuBtn = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${ props => props.colors.black700};
-  border: 1px solid ${ props => props.colors.black700};
+  color: ${ props => props.colors.mainDark};
+  border: 1px solid ${ props => props.colors.mainDark};
   cursor: pointer;
   font-size: 2rem;
   @media(min-width: 1030px) {
