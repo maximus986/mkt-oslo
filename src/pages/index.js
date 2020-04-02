@@ -26,6 +26,15 @@ export const PAGE_QUERY = graphql`
           }
         }
       }
+      menu(id: "TWVudTo0MQ==") {
+        menuItems {
+          nodes {
+            id
+            url
+            label
+          }
+        }
+      }
       posts(first: 6) {
         nodes {
           date
@@ -40,6 +49,7 @@ export const PAGE_QUERY = graphql`
           }
         }
       }
+
     }
   }
 `;
@@ -48,6 +58,7 @@ export const PAGE_QUERY = graphql`
 const IndexPage = ({ data }) => {
   const { siteMetadata: { title } } = useSiteMetadata()
   const content = data.wpgraphql.pageBy.sections.content
+  const menuItems = data.wpgraphql.menu.menuItems
   return (
     < Layout>
       <SEO title={`Hjem - ${title}`} />
@@ -60,7 +71,7 @@ const IndexPage = ({ data }) => {
           case 'WPGraphQL_Page_Sections_Content_Welcome':
             return <Welcome key={i} {...section} />;
           case 'WPGraphQL_Page_Sections_Content_Pschylogistinfo':
-            return <PsychologistInfo key={i} {...section} />;
+            return <PsychologistInfo key={i} {...section} menuItems={menuItems} />;
           case 'WPGraphQL_Page_Sections_Content_About':
             return <About key={i} {...section} />;
           case 'WPGraphQL_Page_Sections_Content_Quotes':
