@@ -98,7 +98,7 @@ export default {
       borderWidth: '1px',
       borderBottomStyle: 'solid',
       borderColor: 'primary',
-      transition: '0.2s linear',
+      transition: 'link',
       textDecoration: 'none',
       color: 'inherit',
       '&:hover': {

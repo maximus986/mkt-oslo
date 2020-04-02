@@ -36,15 +36,16 @@ export const Navigation = ({ showMenu, onNavigate }) => {
           p: 0,
           m: 0,
           transition: 'header',
-          height: showMenu ? `${space[20]}px` : '0',
-          maxHeight: `${space[21]}px`
+          height: showMenu ? `${space[19]}px` : '0',
+          maxHeight: `${space[22]}px`
         }}
         open={showMenu}
       >
         {menuItems.nodes.map((link) => (
           <ListItem key={link.id} {...{ colors }} sx={{
             transition: 'link',
-            ml: [0, 0, 0, 10, 12]
+            ml: [0, 0, 0, 10, 12],
+            mb: 0
           }}>
             <NavLink
               to={createLocalLink(link.url)}
@@ -55,6 +56,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                 fontSize: 0,
                 color: 'black700',
                 p: 4,
+                pb: 1,
                 transition: 'link',
                 '&.active, &:hover': {
                   color: 'primary',

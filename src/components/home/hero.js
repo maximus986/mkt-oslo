@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
@@ -9,7 +9,7 @@ import Image from 'gatsby-image'
 
 export const fragment = graphql`
   fragment HeroSection on WPGraphQL_Page_Sections_Content_Hero {
-    desktopDescription: desktopdescription
+    description: desktopdescription
     title
     mobileDescriptionPrimary: mobiledescriptionprimary
     mobileDescriptionSecondary: mobiledescriptionsecondary
@@ -27,7 +27,7 @@ export const fragment = graphql`
 `
 
 export const Hero = ({
-  desktopDescription,
+  description,
   title,
   mobileDescriptionPrimary,
   mobileDescriptionSecondary,
@@ -38,7 +38,6 @@ export const Hero = ({
     }
   }
 }) => {
-  const theme = useThemeUI()
   return (
     <StyledBackgroundImage fluid={fluid} alt="Bg Image" >
       <Container>
@@ -61,7 +60,7 @@ export const Hero = ({
             fontWeight: 'body'
           }}>{title}</h4>
           <div
-            dangerouslySetInnerHTML={{ __html: desktopDescription }}
+            dangerouslySetInnerHTML={{ __html: description }}
             sx={{
               p: {
                 fontSize: 5,

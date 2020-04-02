@@ -9,10 +9,16 @@ export const fragment = graphql`
     sectiontitle
     primaryInfo: primaryinfo
     secondaryInfo: secondaryinfo
-    description {
+    desktopDescription: desktopdescription {
       __typename
-      ... on WPGraphQL_Page_Sections_Content_Welcome_Description_Descriptionitem {
-        fieldGroupName
+      ... on WPGraphQL_Page_Sections_Content_Welcome_Desktopdescription_Desktopdescriptionitem {
+        text
+        title
+      }
+    }
+    mobileDescription: mobiledescription {
+      __typename
+      ... on WPGraphQL_Page_Sections_Content_Welcome_Mobiledescription_Mobiledescriptionitem {
         text
         title
       }
@@ -20,7 +26,7 @@ export const fragment = graphql`
   }
 `
 
-export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, description }) => {
+export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, desktopDescription, mobileDescription }) => {
   return (
     <SectionContainer title={sectiontitle}>
       <Grid
@@ -37,8 +43,20 @@ export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, description 
         gap={[10, null, null, 16]}
         columns={[1, 1, '1fr 1fr 1fr']}>
         {
-          description.map((item, i) => (
-            <div key={i}>
+          desktopDescription.map((item, i) => (
+            <div key={i} sx={{
+              display: ['none', 'none', 'block']
+            }}>
+              <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
+              <div dangerouslySetInnerHTML={{ __html: item.text }} />
+            </div>
+          ))
+        }
+        {
+          mobileDescription.map((item, i) => (
+            <div key={i} sx={{
+              display: ['block, block', 'block', 'none']
+            }}>
               <h4 sx={{ fontSize: 5, fontWeight: 'bold', mb: 8, textTransform: 'uppercase' }}>{item.title}</h4>
               <div dangerouslySetInnerHTML={{ __html: item.text }} />
             </div>
@@ -50,16 +68,14 @@ export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, description 
 }
 
 const InfoContent = styled.div`
-  p {
-    span {
-      font-family: 'Montserrat';
-      font-weight: 400;
-      float: left;
-      font-size: 48px;
-      line-height: 40px;
-      padding-right: 15px;
-      padding-top: 10px;
-      color: #323232;
-    }
-}
+  p::first-letter {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    float: left;
+    font-size: 48px;
+    line-height: 40px;
+    padding-right: 15px;
+    padding-top: 10px;
+    color: #323232;
+  }
 `
