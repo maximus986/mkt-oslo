@@ -5,6 +5,7 @@ import { SectionContainer } from '../common/sectionContainer'
 import { Container } from '../common/container'
 import { HeadingLine } from '../common/headingLine'
 import Image from 'gatsby-image'
+import { parseContentWithLinks } from '../../utils/index'
 
 
 export const fragment = graphql`
@@ -36,7 +37,7 @@ export const About = ({ description, title, image: { imageFile: { childImageShar
           <figure sx={{ my: 0, maxWidth: '500px', maxHeight: '246px' }}>
             <Image fluid={fluid} alt="Some Image" /> {/* TODO Add alt */}
           </figure>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <div>{parseContentWithLinks(description)}</div>
         </Grid>
       </Container>
     </SectionContainer>

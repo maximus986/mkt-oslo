@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Layout } from '../components/layout'
 import { Container } from '../components/common/container'
+import { parseContentWithLinks } from '../utils/index'
 
 const CategoryTemplate = props => {
   const { data: {
@@ -18,7 +19,7 @@ const CategoryTemplate = props => {
           <div key={post.id}>
             <h4>{post.title}</h4>
             <Img fluid={post.featuredImage.imageFile.childImageSharp.fluid} />
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div>{parseContentWithLinks(post.content)}</div>
           </div>
         ))}
       </Container>

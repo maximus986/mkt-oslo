@@ -38,7 +38,6 @@ export const Hero = ({
     }
   }
 }) => {
-  const parsedDescription = parseContentWithLinks(description)
   return (
     <StyledBackgroundImage fluid={fluid} alt="Bg Image" >
       <Container>
@@ -65,7 +64,7 @@ export const Hero = ({
               fontSize: 5,
               lineHeight: '42px'
             }
-          }} >{parsedDescription}</div>
+          }} >{parseContentWithLinks(description)}</div>
         </DesktopContent>
       </Container>
     </StyledBackgroundImage>

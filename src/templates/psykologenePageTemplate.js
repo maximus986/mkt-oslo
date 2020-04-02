@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Container } from '../components/common/container'
+import { parseContentWithLinks } from '../utils/index'
 
 const PsykologenePagesTemplate = props => {
   const { data: {
@@ -13,9 +14,9 @@ const PsykologenePagesTemplate = props => {
     <Layout>
       <Container>
         <h1>Psykologene TEMPLATE</h1>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div>{parseContentWithLinks(content)}</div>
       </Container>
-    </Layout>
+    </Layout >
   );
 }
 

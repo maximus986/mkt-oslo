@@ -6,6 +6,7 @@ import { Container } from '../components/common/container'
 import { Grid } from 'theme-ui'
 import SEO from '../components/seo'
 import styled from '@emotion/styled'
+import { parseContentWithLinks } from '../utils/index'
 
 const BehandlingPagesTemplate = props => {
   const { data: {
@@ -23,7 +24,7 @@ const BehandlingPagesTemplate = props => {
           gap={7}
           columns={[1, 1, '1fr 2fr', '1fr 2fr', '3fr 9fr']}>
           <Aside sx={{ bg: 'yellow' }} show={isRootBehandling}>Sidebar</Aside>
-          <div sx={{ bg: '#ccc' }} dangerouslySetInnerHTML={{ __html: content }} />
+          <div sx={{ bg: '#ccc' }}>{parseContentWithLinks(content)}</div>
         </Grid>
       </Container>
     </Layout>
