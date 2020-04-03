@@ -23,6 +23,9 @@ export const PAGE_QUERY = graphql`
             ...PsychologistInfoSection
             ...AboutSection
             ...QuotesSection
+            ... on WPGraphQL_Page_Sections_Content_Fakeposts {
+              fieldGroupName
+            }
             ...LearnMoreSection
           }
         }
@@ -62,13 +65,17 @@ const IndexPage = ({ data }) => {
             return <About key={i} {...section} />;
           case 'WPGraphQL_Page_Sections_Content_Quotes':
             return <Quotes key={i} {...section} />;
+          // This is a fake posts typename.
+          // Its purpose is to hold a place for posts section because they are fetched and styled
+          // in a separate component that is used on the blog page as well.
+          case 'WPGraphQL_Page_Sections_Content_Fakeposts':
+            return <PostListSection key={i} />;
           case 'WPGraphQL_Page_Sections_Content_Learnmore':
             return <LearnMore key={i} {...section} />;
           default:
             return <p>Something went wrong. Please try again.</p>;
         }
       })}
-      <PostListSection />
     </Layout>
   )
 }
