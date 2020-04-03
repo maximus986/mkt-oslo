@@ -28,6 +28,7 @@ export const LearnMore = ({ title, url }) => {
           mb: 2
         }}>{title}</h5>
         <div sx={{
+          p: { m: 0 },
           a: {
             borderBottomColor: 'grey300',
             fontSize: 0,
