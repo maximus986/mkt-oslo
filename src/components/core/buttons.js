@@ -18,7 +18,9 @@ const InternalButton = ({
       }}
     >
       <Link to={to}>
-        <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
+        {
+          icon && <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
+        }
         <span>{label}</span>
       </Link>
     </button>
@@ -53,7 +55,9 @@ const ExternalButton = ({
       }}
     >
       <a href={href} target="_blank" rel="noopener noreferrer">
-        <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
+        {
+          icon && <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
+        }
         <span>{label}</span>
       </a>
     </button>
