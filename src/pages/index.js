@@ -10,6 +10,7 @@ import { About } from '../components/home/about'
 import { PsychologistInfo } from '../components/home/psychologistInfo'
 import { Welcome } from '../components/home/welcome'
 import { PostListSection } from '../components/home/postListSection'
+import { Contact } from '../components/common/contact/contact'
 
 export const PAGE_QUERY = graphql`
   {
@@ -76,7 +77,7 @@ const IndexPage = ({ data }) => {
             return <p>Something went wrong. Please try again.</p>;
         }
       })}
-
+      <Contact />
     </Layout>
   )
 }
