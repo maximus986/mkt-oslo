@@ -12,7 +12,7 @@ export const fragment = graphql`
 
 export const Quotes = ({ quote, quoteAuthor }) => {
   return (
-    <div sx={{
+    <section sx={{
       py: ['70px', null, '100px'],
       bg: 'secondary',
       color: 'white',
@@ -46,7 +46,7 @@ export const Quotes = ({ quote, quoteAuthor }) => {
           />
         </Flex>
       </Container>
-    </div>
+    </section>
   )
 }
 
