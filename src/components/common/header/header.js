@@ -6,7 +6,7 @@ import { jsx, useThemeUI } from 'theme-ui'
 import { Navigation } from './navigation'
 import { Link } from 'gatsby'
 import logo from '../../../images/MKT_dark.svg'
-import { Container } from '../container'
+import { Container } from '../../core'
 import { Flex } from 'theme-ui'
 
 export const Header = () => {

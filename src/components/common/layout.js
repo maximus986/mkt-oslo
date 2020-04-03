@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React from 'react'
-import { Header } from '../components/common/header/header'
+import { Header } from './header/header'
 import PropTypes from 'prop-types'
 
 export const Layout = ({ children }) => {

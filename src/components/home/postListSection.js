@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { PostList } from '../common/post/postList'
-import { SectionContainer } from '../common/sectionContainer'
-import { Container } from '../common/container'
+import { SectionContainer } from '../core'
+import { Container } from '../core'
 
 export const PostListSection = () => {
   return (

@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import { Container } from '../common/container'
+import { Container } from '../core'
 import styled from '@emotion/styled'
 import Image from 'gatsby-image'
 import { parseContentWithLinks } from '../../utils/index'

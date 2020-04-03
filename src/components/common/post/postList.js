@@ -42,11 +42,9 @@ export const PostList = ({ numberOfPosts }) => {
       {
         posts.nodes.map((post, i) => {
           if (!numberOfPosts) {
-            console.log('There is not numberOfPosts')
             return <Post key={post.id} post={post} />
           }
           if (numberOfPosts && i <= numberOfPosts - 1) {
-            console.log('There is numberOfPosts')
             return <Post key={post.id} post={post} />
           }
         })

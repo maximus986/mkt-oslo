@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Flex } from 'theme-ui'
 import { graphql } from 'gatsby'
-import { Container } from '../common/container'
+import { Container } from '../core'
 
 export const fragment = graphql`
   fragment QuotesSection on WPGraphQL_Page_Sections_Content_Quotes {

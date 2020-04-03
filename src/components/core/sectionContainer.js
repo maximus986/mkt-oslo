@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import React from 'react';
 import styled from '@emotion/styled'
-import { HeadingLine } from './headingLine'
+import { HeadingLine } from './index'
 
 export const SectionContainer = ({ title, subtitle, children }) => {
   return (

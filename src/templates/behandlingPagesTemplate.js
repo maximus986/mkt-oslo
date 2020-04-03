@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/layout'
-import { Container } from '../components/common/container'
+import { Layout } from '../components/common/layout'
+import { Container } from '../components/core'
 import { Grid } from 'theme-ui'
-import SEO from '../components/seo'
+import SEO from '../components/common/seo'
 import styled from '@emotion/styled'
 import { parseContentWithLinks } from '../utils/index'
 

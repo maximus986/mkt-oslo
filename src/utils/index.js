@@ -1,6 +1,6 @@
 import { config } from '../../config';
 import parse from 'html-react-parser'
-import { Link } from '../components/common/link'
+import { Link } from '../components/core'
 import React from 'react'
 
 export const createLocalLink = url => {

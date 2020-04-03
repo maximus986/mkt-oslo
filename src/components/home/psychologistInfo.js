@@ -2,9 +2,9 @@
 import { jsx, useThemeUI } from 'theme-ui'
 import { graphql, Link } from 'gatsby'
 import { createLocalLink } from '../../utils/index'
-import { Container } from '../common/container'
+import { Container } from '../core'
 import styled from '@emotion/styled'
-import { HeadingLine } from '../common/headingLine'
+import { HeadingLine } from '../core'
 
 export const fragment = graphql`
   fragment PsychologistInfoSection on WPGraphQL_Page_Sections_Content_Pschylogistinfo {

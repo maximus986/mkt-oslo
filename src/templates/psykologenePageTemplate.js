@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/layout'
-import { Container } from '../components/common/container'
+import { Layout } from '../components/common/layout'
+import { Container } from '../components/core'
 import { parseContentWithLinks } from '../utils/index'
 
 const PsykologenePagesTemplate = props => {
