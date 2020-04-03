@@ -54,7 +54,7 @@ export const Hero = ({
           display: ['none', 'none', 'block']
         }}>
           <h4 sx={{
-            fontSize: 9,
+            fontSize: 10,
             mb: 0,
             fontFamily: 'body',
             fontWeight: 'body'
