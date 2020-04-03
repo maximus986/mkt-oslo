@@ -5,6 +5,7 @@ import { createLocalLink } from '../../utils/index'
 import { Container } from '../core'
 import styled from '@emotion/styled'
 import { HeadingLine } from '../core'
+import { InternalButton, ExternalButton } from '../core/buttons'
 
 export const fragment = graphql`
   fragment PsychologistInfoSection on WPGraphQL_Page_Sections_Content_Pschylogistinfo {
@@ -43,7 +44,7 @@ export const PsychologistInfo = props => {
     }}>
       <Container>
         <div sx={{
-          display: ['none', 'none', 'none', 'block'],
+          display: ['none', 'none', 'block', 'block'],
           textAlign: 'center'
         }}>
           <HeadingLine />
@@ -52,10 +53,13 @@ export const PsychologistInfo = props => {
             color: 'white',
             textTransform: 'uppercase',
             letterSpacing: '1px',
+            mb: 12,
             '&:after': {
               display: 'none'
             }
           }}>{title}</Title>
+          <InternalButton variant="outline" label="Våre psykologer" to="/psykologene" sx={{ mr: 11 }} />
+          <ExternalButton label="timebestilling" />
         </div>
         <div sx={{
           display: ['block, block', 'block', 'none']

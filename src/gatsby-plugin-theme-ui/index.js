@@ -4,11 +4,12 @@ export default {
   colors: {
     text: '#656565',
     primary: '#fe7e17',
+    primaryDarker: '#e06908',
     secondary: '#212121',
     background: '#fff',
     mainDark: '#323232',
     white: '#fff',
-    grey0: '#d2d2d2',
+    grey: '#d2d2d2',
     grey50: '#d9d9d9',
     grey100: '#eaeaea',
     grey150: '#efefef',
@@ -24,6 +25,76 @@ export default {
         text: '#fff',
         background: '#000',
         primary: '#0cf',
+      }
+    }
+  },
+  buttons: {
+    common: {
+      fontFamily: 'heading',
+      fontWeight: 'normal',
+      px: 7,
+      py: 4,
+      textTransform: 'uppercase',
+      letterSpacing: '1px',
+      appearance: 'none',
+      display: 'inline-block',
+      textAlign: 'center',
+      lineHeight: 'inherit',
+      textDecoration: 'none',
+      border: 0,
+      cursor: 'pointer',
+      transition: 'link',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      mx: 'auto',
+      '&:focus': {
+        outline: 'none'
+      },
+      a: {
+        border: 'none',
+        lineHeight: '30px',
+        transition: 'none',
+        display: 'flex',
+        placeItems: 'center'
+      },
+      'a:hover': {
+        border: 'none',
+        bg: 'transparent'
+      },
+    },
+    primary: {
+      variant: 'buttons.common',
+      color: 'white',
+      bg: 'primary',
+      borderColor: 'primary',
+      '&:hover': {
+        bg: 'primaryDarker'
+      }
+    },
+    secondary: {
+      variant: 'buttons.common',
+      bg: 'secondary',
+      color: 'white'
+    },
+    internal: {
+      variant: 'buttons.common',
+      borderColor: 'grey100',
+      bg: 'grey100',
+      color: 'grey400',
+      '&:hover': {
+        color: 'grey400',
+        bg: 'grey'
+      }
+    },
+    outline: {
+      variant: 'buttons.common',
+      bg: 'transparent',
+      color: 'primary',
+
+      borderColor: 'primary',
+      '&:hover': {
+        color: 'white',
+        bg: 'primary'
       }
     }
   },
@@ -112,7 +183,8 @@ export default {
         bg: 'rgba(0, 0, 0, 0.05)',
         borderColor: 'mainDark',
       }
-    }
+    },
+
   },
   styles: {
     root: {
@@ -143,8 +215,12 @@ export default {
       },
       a: {
         variant: 'text.link'
-      }
+      },
+
     },
+  },
+  radii: {
+    reset: 0
   },
   transition: {
     link: '0.2s linear',

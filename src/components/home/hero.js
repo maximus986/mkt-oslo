@@ -1,11 +1,14 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Grid } from 'theme-ui'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import { Container } from '../core'
 import styled from '@emotion/styled'
 import Image from 'gatsby-image'
 import { parseContentWithLinks } from '../../utils/index'
+import { Reservation } from '../common/reservation'
+import { InternalButton, ExternalButton } from '../core/buttons'
+import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
 
 export const fragment = graphql`
   fragment HeroSection on WPGraphQL_Page_Sections_Content_Hero {
@@ -44,6 +47,14 @@ export const Hero = ({
         <MobileContent sx={{
           display: ['block, block', 'block', 'none']
         }}>
+          <Grid gap={10}
+            columns={[1, '1fr 1fr']}
+            sx={{
+              mb: 11
+            }}>
+            <InternalButton icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />
+            <ExternalButton icon={<FaMapMarkerAlt />} label="bestill time i oslo" />
+          </Grid>
           <div sx={{ mb: '35px' }} dangerouslySetInnerHTML={{ __html: mobileDescriptionPrimary }} />
           <figure sx={{ mb: '35px', maxWidth: '390px', mx: 'auto' }}>
             <Image fluid={fluid} alt="Alt" />
@@ -51,7 +62,7 @@ export const Hero = ({
           <div dangerouslySetInnerHTML={{ __html: mobileDescriptionSecondary }} />
         </MobileContent>
         <DesktopContent sx={{
-          display: ['none', 'none', 'block']
+          display: ['none', 'none', 'block'],
         }}>
           <h4 sx={{
             fontSize: 10,
@@ -64,10 +75,20 @@ export const Hero = ({
               fontSize: 5,
               lineHeight: '42px'
             }
-          }} >{parseContentWithLinks(description)}</div>
+          }}>{parseContentWithLinks(description)}</div>
+          <div sx={{
+            width: ['80%', null, null, '90%'],
+            mx: 'auto',
+            px: 10,
+            py: 12,
+            bg: 'rgba(250,250,250, 0.62)',
+            mt: [null, null, null, 10]
+          }}>
+            <Reservation textWidth="50" buttonsWidth="50" />
+          </div>
         </DesktopContent>
       </Container>
-    </StyledBackgroundImage>
+    </StyledBackgroundImage >
   )
 }
 
