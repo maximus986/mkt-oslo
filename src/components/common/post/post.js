@@ -30,7 +30,7 @@ export const Post = ({ post }) => {
             fluid={fluid}
             alt="Post image"
             sx={{
-              filter: 'grayscale(100%)',
+              filter: 'grayscale(90%)',
               transition: 'imageLink',
               '&:hover': {
                 filter: 'none',
