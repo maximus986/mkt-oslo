@@ -20,7 +20,7 @@ const center = {
 
 export const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: `${process.env.GOOGLE_MAP_API_KEY}`,
+    googleMapsApiKey: `${process.env.GATSBY_GOOGLE_MAP_API_KEY}`,
   }, [])
 
   const renderMap = () => {
