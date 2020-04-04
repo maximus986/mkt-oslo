@@ -35,7 +35,6 @@ export const Welcome = ({ sectiontitle, primaryInfo, secondaryInfo, desktopDescr
           gap={[10, null, null, 16]}
           columns={[1, 1, '1fr 1fr']}
           sx={{
-            mt: [null, null, null, 17],
             mb: [10, null, null, 15]
           }}>
           <InfoContent dangerouslySetInnerHTML={{ __html: primaryInfo }} sx={{ textAlign: [null, null, 'justify'] }} />
