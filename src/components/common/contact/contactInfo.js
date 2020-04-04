@@ -1,13 +1,15 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, Grid } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
+import styled from '@emotion/styled'
 
 export const ContactInfo = () => {
   const data = useStaticQuery(graphql`
-    {
-      wpgraphql {
+  {
+    wpgraphql {
       contactSection(id: "Y29udGFjdHNlY3Rpb246Mzk3Mw==") {
         contactInfo {
-          contactinfo {
+          contactInfos: contactinfo {
             ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Telephone {
               __typename
               open
@@ -19,7 +21,6 @@ export const ContactInfo = () => {
               additionalinfo
               emailaddress
               title
-              fieldGroupName
             }
             ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Address {
               __typename
@@ -33,36 +34,64 @@ export const ContactInfo = () => {
     }
   }
 `)
-  const contactinfo = data.wpgraphql.contactSection.contactInfo.contactinfo
-  console.log(contactinfo)
+  const contactInfos = data.wpgraphql.contactSection.contactInfo.contactInfos
   return (
-    <div>
-      {/* {content.map((section, i) => {
-        const typeName = section.__typename;
+    <Grid gap={[11, null, 0]} columns={[1, 1, '1fr 1fr 1fr']} sx={{ textAlign: 'center' }}>
+      {contactInfos.map((contactInfo, i) => {
+        const typeName = contactInfo.__typename;
 
         switch (typeName) {
-          case 'WPGraphQL_Page_Sections_Content_Hero':
-            return <Hero key={i} {...section} />;
-          case 'WPGraphQL_Page_Sections_Content_Welcome':
-            return <Welcome key={i} {...section} />;
-          case 'WPGraphQL_Page_Sections_Content_Pschylogistinfo':
-            return <PsychologistInfo key={i} {...section} menuItems={menuItems} />;
-          case 'WPGraphQL_Page_Sections_Content_About':
-            return <About key={i} {...section} />;
-          case 'WPGraphQL_Page_Sections_Content_Quotes':
-            return <Quotes key={i} {...section} />;
-          // This is a fake posts typename.
-          // Its purpose is to hold a place for posts section because they are fetched and styled
-          // in a separate component that is used on the blog page as well.
-          case 'WPGraphQL_Page_Sections_Content_Fakeposts':
-            return <PostListSection key={i} />;
-          case 'WPGraphQL_Page_Sections_Content_Learnmore':
-            return <LearnMore key={i} {...section} />;
+          case 'WPGraphQL_ContactSection_Contactinfo_Contactinfo_Telephone':
+            return (
+              <Info key={i}>
+                <Title>{contactInfo.title}</Title>
+                <a href={`tel: ${contactInfo.telephonenumber}`}>{contactInfo.telephonenumber}</a>
+                <Text>{contactInfo.open}</Text>
+              </Info>
+            );
+          case 'WPGraphQL_ContactSection_Contactinfo_Contactinfo_Email':
+            return (
+              <Info key={i}>
+                <Title>{contactInfo.title}</Title>
+                <a href={`mailto: ${contactInfo.emailaddress}`}>{contactInfo.emailaddress}</a>
+                <Text>{contactInfo.additionalinfo}</Text>
+              </Info>
+            );
+          case 'WPGraphQL_ContactSection_Contactinfo_Contactinfo_Address':
+            return (
+              <Info key={i}>
+                <Title>{contactInfo.title}</Title>
+                <Text sx={{ mt: 0 }}>{contactInfo.street}</Text>
+                <Text>{contactInfo.number}</Text>
+              </Info>
+            );
           default:
             return <p>Something went wrong. Please try again.</p>;
         }
-      })} */}
-    </div>
+      })}
+    </Grid>
   );
 }
+
+const Info = styled.div`
+  font-size: 15px;
+`
+
+const Title = styled.h5`
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 28px;
+  &:after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: #b4b4b4;
+    display: block;
+    margin: 5px auto;
+  }
+`
+
+const Text = styled.p`
+  margin: 5px 0 0;
+`
 
