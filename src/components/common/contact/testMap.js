@@ -15,7 +15,7 @@ function Map({ options, onMount, className, onMountProps }) {
       const script = document.createElement(`script`)
       script.src =
         `https://maps.googleapis.com/maps/api/js?key=` +
-        process.env.GOOGLE_MAP_API_KEY
+        process.env.GATSBY_GOOGLE_MAP_API_KEY
       document.head.append(script)
       script.addEventListener(`load`, onLoad)
       return () => script.removeEventListener(`load`, onLoad)
