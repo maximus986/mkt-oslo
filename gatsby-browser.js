@@ -7,7 +7,7 @@ require("typeface-nothing-you-could-do")
 
 export const wrapRootElement = ({ element }) => (
   <LoadScriptNext
-    googleMapsApiKey={process.env.GOOGLE_MAP_API_KEY}
+    googleMapsApiKey={process.env.GATSBY_GOOGLE_MAP_API_KEY}
     preventGoogleFontsLoading={false}
   >
     {element}
