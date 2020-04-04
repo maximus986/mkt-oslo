@@ -77,6 +77,7 @@ const IndexPage = ({ data }) => {
             return <p>Something went wrong. Please try again.</p>;
         }
       })}
+      <Contact />
     </Layout>
   )
 }

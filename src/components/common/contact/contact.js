@@ -11,12 +11,12 @@ export const Contact = () => {
       <div sx={{ mb: 14 }}>
         <Container >
           <ContactInfo />
+          <Grid gap={[11, null, 0]} columns={[1, 1, '1fr 1fr']}>
+            <Form />
+            <Map />
+          </Grid>
         </Container>
       </div>
-      <Grid gap={[11, null, 0]} columns={[1, 1, '1fr 1fr']}>
-        <Form />
-        <Map />
-      </Grid>
     </SectionContainer>
   );
 }
