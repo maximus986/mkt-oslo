@@ -7,7 +7,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@react-google-maps/api": "^1.8.6",
     "date-fns": "^2.11.1",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.45",
@@ -21,7 +20,6 @@
     "gatsby-plugin-sharp": "^2.4.13",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-filesystem": "^2.1.56",
-    "gatsby-source-googlemaps-static": "^1.1.1",
     "gatsby-source-graphql": "^2.3.0",
     "gatsby-transformer-sharp": "^2.3.19",
     "google-fonts-plugin": "^5.0.2",
@@ -34,8 +32,7 @@
     "theme-ui": "^0.3.1",
     "typeface-lato": "^0.0.75",
     "typeface-montserrat": "^0.0.75",
-    "typeface-nothing-you-could-do": "^0.0.72",
-    "typeface-open-sans": "^0.0.75"
+    "typeface-nothing-you-could-do": "^0.0.72"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
