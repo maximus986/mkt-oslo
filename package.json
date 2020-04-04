@@ -20,6 +20,7 @@
     "gatsby-plugin-sharp": "^2.4.13",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-source-googlemaps-static": "^1.1.1",
     "gatsby-source-graphql": "^2.3.0",
     "gatsby-transformer-sharp": "^2.3.19",
     "google-fonts-plugin": "^5.0.2",
