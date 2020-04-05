@@ -88,7 +88,7 @@ export const Hero = ({
             bg: 'rgba(250,250,250, 0.62)',
             mt: [null, null, null, 10]
           }}>
-            <Reservation textWidth="50" buttonsWidth="50" />
+            <Reservation />
           </div>
         </DesktopContent>
       </Container>
