@@ -36,7 +36,7 @@ export const ContactInfo = () => {
 `)
   const contactInfos = data.wpgraphql.contactSection.contactInfo.contactInfos
   return (
-    <Grid gap={[11, null, 0]} columns={[1]} sx={{ textAlign: 'center' }}>
+    <Grid gap={[10, null, 0]} columns={[1]} sx={{ textAlign: 'center', bg: 'grey', p: [5, 10, null, null, 16], height: '100%' }}>
       {contactInfos.map((contactInfo, i) => {
         const typeName = contactInfo.__typename;
 

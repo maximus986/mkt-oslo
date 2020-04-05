@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Grid } from 'theme-ui'
+import { jsx, Flex } from 'theme-ui'
 import { ContactInfo } from './contactInfo'
 import { SectionContainer, Container } from '../../core/index'
 import { Map } from '../contact/map'
@@ -8,11 +8,34 @@ import { Form } from '../contact/form'
 export const Contact = () => {
   return (
     <SectionContainer title="kontakt">
-      <Grid gap={[11, null, 0]} columns={[1, 1, '1fr 2fr 1fr']} sx={{ textAlign: 'center' }}>
-        <ContactInfo />
-        <Form />
-        <Map />
-      </Grid>
+      <Flex
+        sx={{
+          flexDirection: ['column', 'row', 'row'],
+          flexWrap: [null, 'wrap'],
+          justifyContent: 'space-between',
+          textAlign: 'center'
+        }}>
+        <div
+          sx={{
+            flexBasis: [null, '50%', '30%', '33.4%', '20%']
+          }}>
+          <ContactInfo />
+        </div>
+        <div
+          sx={{
+            flexBasis: [null, '100%', '30%', '33.3%', '50%'],
+            flexGrow: [null, '1', '0', null],
+            order: [null, 3, 0],
+          }}>
+          <Form />
+        </div>
+        <div
+          sx={{
+            flexBasis: [null, '50%', '30%', '33.3%', '20%']
+          }}>
+          <Map />
+        </div>
+      </Flex>
     </SectionContainer>
   );
 }

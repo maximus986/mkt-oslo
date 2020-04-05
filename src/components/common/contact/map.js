@@ -1,7 +1,7 @@
 /** @jsx jsx */
+import { jsx } from 'theme-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
-import { jsx } from 'theme-ui';
 
 
 export const Map = () => {
@@ -21,8 +21,20 @@ export const Map = () => {
   `)
   const { mapUrl, childFile: { childImageSharp: { fluid } } } = staticMap
   return (
-    <a href={mapUrl}>
-      <Image fluid={fluid} alt="Map" />
-    </a>
+    <div sx={{ height: '100%', }}>
+      <a
+        href={mapUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          border: 'none',
+          '&:hover': {
+            bg: 'transparent',
+            border: 'none'
+          }
+        }}>
+        <Image fluid={fluid} alt="Map" sx={{ height: '100%', }} />
+      </a>
+    </div>
   )
 }
