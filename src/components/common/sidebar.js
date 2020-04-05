@@ -60,7 +60,6 @@ export const Sidebar = () => {
       return 0
     }
   })
-  console.log(sortedPages)
   return (
     <aside>
       <Title sx={{
