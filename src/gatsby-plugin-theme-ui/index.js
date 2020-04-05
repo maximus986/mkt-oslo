@@ -90,7 +90,6 @@ export default {
       variant: 'buttons.common',
       bg: 'transparent',
       color: 'primary',
-
       borderColor: 'primary',
       '&:hover': {
         color: 'white',

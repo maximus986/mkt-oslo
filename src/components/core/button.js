@@ -1,34 +1,11 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Link } from '../core/link'
 
-const InternalButton = ({
-  variant = 'internal',
-  to,
-  icon,
-  label,
-  ...props
-}) => {
-  return (
-    <button
-      {...props}
-      sx={{
-        // pass variant prop to sx
-        variant: `buttons.${variant}`,
-      }}
-    >
-      <Link to={to}>
-        {
-          icon && <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
-        }
-        <span>{label}</span>
-      </Link>
-    </button>
-  )
-}
-
-const ExternalButton = ({
+export const Button = ({
   variant = 'primary',
+  to,
   icon,
   label,
   children,
@@ -54,14 +31,12 @@ const ExternalButton = ({
         variant: `buttons.${variant}`,
       }}
     >
-      <a href={href} target="_blank" rel="noopener noreferrer">
+      <Link to={to ? to : href}>
         {
           icon && <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
         }
         <span>{label}</span>
-      </a>
+      </Link>
     </button>
   )
 }
-
-export { InternalButton, ExternalButton };

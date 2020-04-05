@@ -50,6 +50,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
             <NavLink
               to={createLocalLink(link.url)}
               activeClassName="active"
+              partiallyActive={true}
               sx={{
                 fontFamily: 'body',
                 fontWeight: 'normal',

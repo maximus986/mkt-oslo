@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Grid } from 'theme-ui'
-import { InternalButton, ExternalButton } from '../core/buttons'
+import { Button } from '../core/button'
 import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
 
 export const Reservation = () => {
@@ -36,8 +36,8 @@ export const Reservation = () => {
         sx={{
           justifySelf: [null, null, null, 'end']
         }}>
-        <InternalButton icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />
-        <ExternalButton icon={<FaMapMarkerAlt />} label="bestill time i oslo" />
+        <Button variant="internal" icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />
+        <Button variant="primary" icon={<FaMapMarkerAlt />} label="bestill time i oslo" />
       </Grid>
     </Grid>
   );

@@ -55,14 +55,14 @@ export const Header = () => {
           alignItems: ['stretch', 'stretch', 'stretch', 'center']
         }}>
           <HeaderActionWrapper>
-            <Link to="/" sx={{ lineHeight: 0, border: 'none' }}>
+            <Link to="/" sx={{ lineHeight: 0, border: 'none', '&:hover': { bg: 'transparent' } }}>
               <Img
                 src={logo}
                 alt="Site logo"
                 animate={animateNavbar}
                 sx={{
-                  width: animateNavbar ? 'auto' : `${space[18]}px`,
-                  height: animateNavbar ? `${space[9]}px` : `${space[7]}px`
+                  width: 'auto',
+                  height: `${space[9]}px`
                 }}
               />
             </Link>

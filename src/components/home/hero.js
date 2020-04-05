@@ -7,7 +7,7 @@ import styled from '@emotion/styled'
 import Image from 'gatsby-image'
 import { parseContentWithLinks } from '../../utils/index'
 import { Reservation } from '../common/reservation'
-import { InternalButton, ExternalButton } from '../core/buttons'
+import { Button } from '../core/button'
 import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
 
 export const fragment = graphql`
@@ -45,20 +45,24 @@ export const Hero = ({
     <StyledBackgroundImage fluid={fluid} alt="Bg Image" >
       <Container>
         <MobileContent sx={{
-          display: ['block, block', 'block', 'none']
+          display: ['block, block', 'block', 'none'],
+          pt: 7
         }}>
+          <div sx={{ mb: '35px' }} dangerouslySetInnerHTML={{ __html: mobileDescriptionPrimary }} />
+          <figure sx={{ mb: '35px', maxWidth: '390px', mx: 'auto' }}>
+            <Image fluid={fluid} alt="Alt" /> {/* TODO Add alt */}
+          </figure>
           <Grid gap={10}
             columns={[1, '1fr 1fr']}
             sx={{
-              mb: 11
+              mb: 11,
+              px: 4,
+              py: 7,
+              bg: 'rgba(250,250,250, 0.62)',
             }}>
-            <InternalButton icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />
-            <ExternalButton icon={<FaMapMarkerAlt />} label="bestill time i oslo" />
+            <Button variant="internal" icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />
+            <Button variant="primary" icon={<FaMapMarkerAlt />} label="bestill time i oslo" />
           </Grid>
-          <div sx={{ mb: '35px' }} dangerouslySetInnerHTML={{ __html: mobileDescriptionPrimary }} />
-          <figure sx={{ mb: '35px', maxWidth: '390px', mx: 'auto' }}>
-            <Image fluid={fluid} alt="Alt" />
-          </figure>
           <div dangerouslySetInnerHTML={{ __html: mobileDescriptionSecondary }} />
         </MobileContent>
         <DesktopContent sx={{
@@ -104,15 +108,6 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   place-items: center;
 `;
 
-const MobileContent = styled.div`
-
-`
-const DesktopContent = styled.div`
-  /* h4 {
-    font-size: 48px;
-    margin-bottom: 0;
-    font-weight: 300;
-    line-height: 64px;
-  } */
-`
+const MobileContent = styled.div``
+const DesktopContent = styled.div``
 

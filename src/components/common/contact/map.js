@@ -21,7 +21,7 @@ export const Map = () => {
   `)
   const { mapUrl, childFile: { childImageSharp: { fluid } } } = staticMap
   return (
-    <div sx={{ height: '100%', }}>
+    <div sx={{ height: ['400px', '100%'] }}>
       <a
         href={mapUrl}
         target="_blank"
