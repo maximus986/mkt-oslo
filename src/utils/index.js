@@ -11,6 +11,7 @@ export const createLocalLink = url => {
 }
 
 export const parseContentWithLinks = (content) => {
+  if (!content) return
   return parse(content, {
     replace: domNode => {
       if (domNode.attribs && domNode.attribs.href) {
