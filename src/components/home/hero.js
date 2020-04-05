@@ -6,7 +6,7 @@ import { Container } from '../core'
 import styled from '@emotion/styled'
 import Image from 'gatsby-image'
 import { parseContentWithLinks } from '../../utils/index'
-import { Reservation } from '../common/reservation'
+import { Reservation } from './reservation'
 import { Button } from '../core/button'
 import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
 

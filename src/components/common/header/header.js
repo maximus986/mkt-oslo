@@ -56,10 +56,9 @@ export const Header = () => {
         }}>
           <HeaderActionWrapper>
             <Link to="/" sx={{ lineHeight: 0, border: 'none', '&:hover': { bg: 'transparent' } }}>
-              <Img
+              <img
                 src={logo}
                 alt="Site logo"
-                animate={animateNavbar}
                 sx={{
                   width: 'auto',
                   height: `${space[9]}px`
@@ -84,8 +83,6 @@ export const Header = () => {
     </HeaderContainer>
   )
 }
-
-const Img = styled.img``
 
 const HeaderContainer = styled.header`
   position: fixed;

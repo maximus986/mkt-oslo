@@ -49,7 +49,7 @@ export const Form = () => {
   return (
     <div sx={{
       bg: 'grey150',
-      p: [5, 10, null, null, 16]
+      p: [10, null, null, 16]
     }}>
       <Title>Kontakt oss</Title>
       <form
