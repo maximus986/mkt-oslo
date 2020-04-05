@@ -21,6 +21,25 @@ module.exports = async ({ actions, graphql }) => {
           pageId
           pageTitle: title
           uri
+          featuredImage {
+            sourceUrl
+            imageFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+          sections {
+            sectionContent: content {
+              ... on WPGraphQL_Page_Sections_Content_Pagetitle {
+                subtitle
+                title
+              }
+            }
+          }
+          content
         }
       }
     }

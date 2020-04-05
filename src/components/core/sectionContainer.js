@@ -4,17 +4,18 @@ import React from 'react';
 import styled from '@emotion/styled'
 import { HeadingLine } from './index'
 
-export const SectionContainer = ({ title, subtitle, children }) => {
+export const SectionContainer = ({ title, subtitle, as, children }) => {
   return (
     <section sx={{
-      py: ['70px', null, '100px']
+      py: [10, null, null, 15, 16]
     }}>
       <div sx={{ textAlign: 'center', mb: 7 }}>
-        <div sx={{ mb: 16 }}>
-          <h2 sx={{
+        <div sx={{ mb: [8, null, null, 12, 16] }}>
+          <SectionTitle as={as} sx={{
             mb: 4,
-            textTransform: 'uppercase'
-          }}>{title}</h2>
+            textTransform: 'uppercase',
+            wordWrap: 'break-word'
+          }}>{title}</SectionTitle>
           {title && <HeadingLine />}
           {
             subtitle && <h5 sx={{
@@ -33,7 +34,6 @@ export const SectionContainer = ({ title, subtitle, children }) => {
 }
 
 const SectionTitle = styled.h2`
-  text-transform: uppercase;
 `
 
 

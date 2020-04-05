@@ -1,12 +1,16 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Grid } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common/layout'
-import { Container } from '../components/core'
-import { Grid } from 'theme-ui'
+import { Container, SectionContainer } from '../components/core'
 import SEO from '../components/common/seo'
 import styled from '@emotion/styled'
 import { parseContentWithLinks } from '../utils/index'
+import { Contact } from '../components/common/contact/contact'
+import { Button } from '../components/core/button'
+import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
+import { Sidebar } from '../components/common/sidebar'
+import Image from 'gatsby-image'
 
 const BehandlingPagesTemplate = props => {
   const { data: {
@@ -14,26 +18,79 @@ const BehandlingPagesTemplate = props => {
   }
   } = props
 
-  const { content, pageTitle, uri } = page
+  const {
+    content,
+    pageTitle,
+    uri,
+    sections: { sectionContent },
+    featuredImage } = page
+  const { title, subtitle } = sectionContent[0]
+
   const isRootBehandling = uri === 'behandling/'
   return (
     <Layout>
       <SEO title={pageTitle} />
       <Container>
+        <SectionContainer title={title} subtitle={subtitle} as="h1" />
         <Grid
-          gap={7}
+          gap={[7, 10, 15]}
           columns={[1, 1, '1fr 2fr', '1fr 2fr', '3fr 9fr']}>
-          <Aside sx={{ bg: 'yellow' }} show={isRootBehandling}>Sidebar</Aside>
-          <div sx={{ bg: '#ccc' }}>{parseContentWithLinks(content)}</div>
+          <SidebarContainer show={isRootBehandling}>
+            <Sidebar />
+          </SidebarContainer>
+          <article>
+            {/*TODO Add alt*/}
+            {
+              featuredImage && <Image fluid={featuredImage.imageFile.childImageSharp.fluid} alt="Page image" sx={{ mb: 11 }} />
+            }
+            <div>{parseContentWithLinks(content)}</div>
+            <div sx={{ mt: 11 }}>
+              <Grid gap={[10, null, null, null]}
+                columns={[1, 1, 1, 1, '1fr 2fr']}
+                sx={{
+                  alignItems: ['start', null, null, 'center']
+                }}>
+                <div sx={{
+                  textAlign: ['center'],
+                  display: ['none', null, null, null, 'block']
+                }}>
+                  <p sx={{
+                    fontSize: 0,
+                    letterSpacing: '1px',
+                    fontWeight: 'bold',
+                    fontFamily: 'heading',
+                    textTransform: 'uppercase',
+                    color: 'mainDark',
+                    mb: 2
+                  }}>bestill time</p>
+                  <p sx={{
+                    fontSize: 3,
+                    letterSpacing: '0.7px',
+                    fontWeight: 'body',
+                    fontFamily: 'body',
+                    fontStyle: 'italic',
+                    m: 0
+                  }}>Vi tilbyr timer i Oslo og line</p>
+                </div>
+                <Grid gap={[10, null, 5, null, 15]}
+                  columns={[1, '1fr 1fr']}
+                >
+                  <Button variant="internal" icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />
+                  <Button variant="primary" icon={<FaMapMarkerAlt />} label="bestill time i oslo" />
+                </Grid>
+              </Grid>
+            </div>
+          </article>
         </Grid>
       </Container>
+      <Contact />
     </Layout>
   );
 }
 
 export default BehandlingPagesTemplate;
 
-const Aside = styled.aside`
+const SidebarContainer = styled.div`
   @media(max-width: 768px) {
     display: ${props => props.show ? 'block' : 'none'};
   }
@@ -43,9 +100,29 @@ export const pageQuery = graphql`
   query GET_BEHANDLING_PAGE($id: ID!) {
     wpgraphql {
       page(id: $id) {
+        id
+        pageId
         pageTitle: title
-        content
         uri
+        featuredImage {
+          sourceUrl
+          imageFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
+        }
+        sections {
+          sectionContent: content {
+            ... on WPGraphQL_Page_Sections_Content_Pagetitle {
+              subtitle
+              title
+            }
+          }
+        }
+        content
       }
     }
   }
