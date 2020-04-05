@@ -39,7 +39,7 @@ export const ContactInfo = () => {
     <Grid
       gap={[10, null, 0]}
       columns={[1]}
-      sx={{ textAlign: 'center', bg: 'grey', p: [10, null, null, 16], height: '100%' }}>
+      sx={{ textAlign: 'center', bg: 'grey', p: [10, null, null, null, 14, 15], height: '100%' }}>
       {contactInfos.map((contactInfo, i) => {
         const typeName = contactInfo.__typename;
 

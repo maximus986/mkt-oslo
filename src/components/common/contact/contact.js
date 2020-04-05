@@ -17,13 +17,13 @@ export const Contact = () => {
         }}>
         <div
           sx={{
-            flexBasis: [null, '50%', '30%', '33.4%', '20%']
+            flexBasis: [null, '50%', '30%', '33.4%', '24%', '20%']
           }}>
           <ContactInfo />
         </div>
         <div
           sx={{
-            flexBasis: [null, '100%', '30%', '33.3%', '50%'],
+            flexBasis: [null, '100%', '30%', '33.3%', '45%', '50%'],
             flexGrow: [null, '1', '0', null],
             order: [null, 3, 0],
           }}>
@@ -31,7 +31,7 @@ export const Contact = () => {
         </div>
         <div
           sx={{
-            flexBasis: [null, '50%', '30%', '33.3%', '20%']
+            flexBasis: [null, '50%', '30%', '33.3%', '24%', '20%']
           }}>
           <Map />
         </div>

@@ -49,7 +49,8 @@ export const Form = () => {
   return (
     <div sx={{
       bg: 'grey150',
-      p: [10, null, null, 16]
+      p: [10, null, null, null, 14, 15],
+      height: '100%'
     }}>
       <Title>Kontakt oss</Title>
       <form
