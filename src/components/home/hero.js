@@ -9,6 +9,8 @@ import { parseContentWithLinks } from '../../utils/index'
 import { Reservation } from './reservation'
 import { Button } from '../core/button'
 import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
+import Typed from 'react-typed';
+import 'react-typed/dist/animatedCursor.css';
 
 export const fragment = graphql`
   fragment HeroSection on WPGraphQL_Page_Sections_Content_Hero {
@@ -73,7 +75,17 @@ export const Hero = ({
             mb: 0,
             fontFamily: 'body',
             fontWeight: 'body'
-          }}>{title}</h4>
+          }}>
+            <span sx={{ mr: 3 }}>{title}</span>
+            <Typed
+              strings={['angst', 'depresjon', 'PTSD', 'stress', 'lav selvfølesle', 'overtenking', 'bekymring', 'mye mer']}
+              typeSpeed={100}
+              backSpeed={100}
+              loop
+              cursorChar="_"
+              sx={{ color: 'primary' }}
+            />
+          </h4>
           <div sx={{
             p: {
               fontSize: 5,
