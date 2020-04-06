@@ -50,7 +50,7 @@ const IndexPage = ({ data }) => {
   const content = data.wpgraphql.pageBy.sections.content
   const menuItems = data.wpgraphql.menu.menuItems
   return (
-    < Layout>
+    <Layout>
       <SEO title={`Hjem - ${title}`} />
       {content.map((section, i) => {
         const typeName = section.__typename;

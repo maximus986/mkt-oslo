@@ -11,7 +11,16 @@ export const PostListSection = () => {
         <div sx={{
           mt: '80px'
         }}>
-          <PostList numberOfPosts={6} />
+          <div sx={{
+            display: ['block', 'none']
+          }}>
+            <PostList numberOfPosts={2} />
+          </div>
+          <div sx={{
+            display: ['none', 'block']
+          }}>
+            <PostList numberOfPosts={6} />
+          </div>
         </div>
       </Container>
     </SectionContainer>
