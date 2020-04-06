@@ -33,7 +33,7 @@ const BehandlingPagesTemplate = props => {
       <Container>
         <SectionContainer title={title} subtitle={subtitle} as="h1" />
         <Grid
-          gap={[7, 10, 15]}
+          gap={[7, 10, 4, 15]}
           columns={[1, 1, '1fr 2fr', '1fr 2fr', '3fr 9fr']}>
           <SidebarContainer show={isRootBehandling}>
             <Sidebar />
@@ -45,7 +45,7 @@ const BehandlingPagesTemplate = props => {
             }
             <div>{parseContentWithLinks(content)}</div>
             <div sx={{ mt: 11 }}>
-              <Grid gap={[10, null, null, null]}
+              <Grid gap={[10, null, 5, null, 10]}
                 columns={[1, 1, 1, 1, '1fr 2fr']}
                 sx={{
                   alignItems: ['start', null, null, 'center']
@@ -72,7 +72,7 @@ const BehandlingPagesTemplate = props => {
                     m: 0
                   }}>Vi tilbyr timer i Oslo og line</p>
                 </div>
-                <Grid gap={[10, null, 5, null, 15]}
+                <Grid gap={[10, null, 0, 5, 11]}
                   columns={[1, '1fr 1fr']}
                 >
                   <Button variant="internal" icon={<FaVideo />} label="bestill online time" to="/behandling/online-metakognitiv-terapi" />

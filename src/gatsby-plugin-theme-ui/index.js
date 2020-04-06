@@ -32,7 +32,7 @@ export default {
     common: {
       fontFamily: 'heading',
       fontWeight: 'normal',
-      px: 7,
+      px: [7, null, 5, 7],
       py: 4,
       textTransform: 'uppercase',
       letterSpacing: '1px',
