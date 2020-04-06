@@ -108,6 +108,7 @@ export default {
   fontWeights: {
     body: 300,
     normal: 400,
+    medium: 500,
     heading: 700,
     bold: 700,
   },
@@ -196,6 +197,9 @@ export default {
       },
       h2: {
         variant: 'text.heading2'
+      },
+      h3: {
+        variant: 'text.heading3'
       },
       h4: {
         variant: 'text.heading4'

@@ -15,8 +15,54 @@ module.exports = async ({ actions, graphql }) => {
         nodes {
           id
           postId
-          title
           uri
+          author {
+            id
+            name
+            description
+          }
+          date
+          categories(first: 2) {
+            nodes {
+              id
+              slug
+              name
+            }
+          }
+          slug
+          featuredImage {
+            sourceUrl
+            imageFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+          content
+          sections {
+            content {
+              ... on WPGraphQL_Post_Sections_Content_Pagetitle {
+                subtitle
+                title
+              }
+            }
+          }
+        }
+      }
+      psychologistBy(psychologistId: 3918) {
+        psychologist {
+          avatarimage {
+            sourceUrl
+            imageFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
         }
       }
     }

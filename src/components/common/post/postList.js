@@ -13,7 +13,7 @@ export const PostList = ({ numberOfPosts }) => {
             date
             title
             slug
-            categories {
+            categories(first: 3) {
               nodes {
                 slug
                 name
