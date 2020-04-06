@@ -90,6 +90,7 @@ const HeaderContainer = styled.header`
   left: 0;
   right: 0;
   z-index: 1030;
+  box-shadow: ${props => props.animate ? '0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1)' : 'none'};
   @media(min-width: 1030px) {
     display: flex;
     align-items: center;
