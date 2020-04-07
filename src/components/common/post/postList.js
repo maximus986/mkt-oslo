@@ -38,7 +38,7 @@ export const PostList = ({ numberOfPosts }) => {
   return (
     < Grid
       gap={[10, null, null, 15]}
-      columns={[1, '1fr 1fr', '1fr 1fr 1fr']}>
+      columns={[1, '1fr 1fr', null, '1fr 1fr 1fr']}>
       {
         posts.nodes.map((post, i) => {
           if (!numberOfPosts) {
