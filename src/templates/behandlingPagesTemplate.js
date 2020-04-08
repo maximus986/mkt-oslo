@@ -1,16 +1,16 @@
 /** @jsx jsx */
-import { jsx, Grid } from 'theme-ui'
-import { graphql } from 'gatsby'
-import { Layout } from '../components/common/layout'
-import { Container, SectionContainer } from '../components/core'
-import SEO from '../components/common/seo'
 import styled from '@emotion/styled'
-import { parseContentWithLinks } from '../utils/index'
-import { Contact } from '../components/common/contact/contact'
-import { Button } from '../components/core/button'
-import { FaMapMarkerAlt, FaVideo } from "react-icons/fa";
-import { Sidebar } from '../components/common/sidebar'
+import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
+import { FaMapMarkerAlt, FaVideo } from "react-icons/fa"
+import { Grid, jsx } from 'theme-ui'
+import { Contact } from '../components/common/contact/contact'
+import { Layout } from '../components/common/layout'
+import SEO from '../components/common/seo'
+import { Sidebar } from '../components/common/sidebar'
+import { Container, SectionContainer } from '../components/core'
+import { Button } from '../components/core/button'
+import { parseContentWithLinks } from '../utils/index'
 
 const BehandlingPagesTemplate = props => {
   const { data: {

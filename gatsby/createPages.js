@@ -1,5 +1,5 @@
 const path = require(`path`)
-const PAGES_TO_CREATE = [new RegExp(`psykologene/?.*`), new RegExp(`behandling/?.*`)]
+const PAGES_TO_CREATE = [new RegExp(`behandling/?.*`)] // TODO Delete regex once creation of all pages from WP is resolved
 module.exports = async ({ actions, graphql }) => {
   // Setup query
   const GET_PAGES = `
@@ -80,22 +80,13 @@ module.exports = async ({ actions, graphql }) => {
       return toCreatePage
     })
     const behandlingPageTemplate = path.resolve(`./src/templates/behandlingPagesTemplate.js`)
-    const psykologenePageTemplate = path.resolve(`./src/templates/psykologenePageTemplate.js`)
 
     filteredAllPages.map(page => {
-      if (page.uri.includes(`behandling`)) {
-        createPage({
-          path: `/${page.uri}`,
-          component: behandlingPageTemplate,
-          context: page
-        })
-      } else {
-        createPage({
-          path: `/${page.uri}`,
-          component: psykologenePageTemplate,
-          context: page
-        })
-      }
+      createPage({
+        path: `/${page.uri}`,
+        component: behandlingPageTemplate,
+        context: page
+      })
     })
   })
 
