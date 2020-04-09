@@ -6,6 +6,7 @@ import SEO from '../components/common/seo';
 import { Container, SectionContainer } from '../components/core';
 import { Psychologist } from '../components/psychologist';
 import { parseContentWithLinks } from '../utils';
+import { Contact } from '../components/common/contact/contact';
 
 const PsychologistsPagesTemplate = props => {
   const {
@@ -19,14 +20,17 @@ const PsychologistsPagesTemplate = props => {
   const pageTitle = content.filter(item => item.title)[0].title;
   const intro = content.filter(item => item.primaryinfo)[0];
   const psychologists = content.filter(item => item.psychologist);
-  // console.log(psychologists)
 
   return (
     <Layout>
       <SEO title="Psykologene" />
       <Container>
         <SectionContainer title={pageTitle} as="h1" />
-        <Grid gap={[null, null, 10, 15]} columns={[1, null, '1fr 1fr']}>
+        <Grid
+          gap={[null, null, 10, 15]}
+          columns={[1, null, '1fr 1fr']}
+          sx={{ mb: [10, null, null, 13] }}
+        >
           <div>{parseContentWithLinks(intro.primaryinfo)}</div>
           <div>{parseContentWithLinks(intro.secondaryinfo)}</div>
         </Grid>
@@ -35,15 +39,17 @@ const PsychologistsPagesTemplate = props => {
             return (
               <Grid
                 gap={[null, null, 10, 15]}
-                columns={[1, null, '1fr 1fr']}
+                columns={[1, null, '2fr 3fr', '1fr 2fr']}
+                sx={{ mb: [16], bg: [null, null, '#fafafa'], alignItems: 'center' }}
                 key={psychologist.id}
               >
-                <Psychologist psychologist={psychologist} />
+                <Psychologist psychologist={psychologist} isPage={false} />
               </Grid>
             );
           })}
         </div>
       </Container>
+      <Contact />
     </Layout>
   );
 };
