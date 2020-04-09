@@ -1,45 +1,51 @@
 /** @jsx jsx */
-import { jsx, Grid } from 'theme-ui'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from '@emotion/styled'
+import { jsx, Grid } from 'theme-ui';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from '@emotion/styled';
 
 export const ContactInfo = () => {
   const data = useStaticQuery(graphql`
-  {
-    wpgraphql {
-      contactSection(id: "Y29udGFjdHNlY3Rpb246Mzk3Mw==") {
-        contactInfo {
-          contactInfos: contactinfo {
-            ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Telephone {
-              __typename
-              open
-              telephonenumber
-              title
-            }
-            ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Email {
-              __typename
-              additionalinfo
-              emailaddress
-              title
-            }
-            ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Address {
-              __typename
-              number
-              street
-              title
+    {
+      wpgraphql {
+        contactSection(id: "Y29udGFjdHNlY3Rpb246Mzk3Mw==") {
+          contactInfo {
+            contactInfos: contactinfo {
+              ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Telephone {
+                __typename
+                open
+                telephonenumber
+                title
+              }
+              ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Email {
+                __typename
+                additionalinfo
+                emailaddress
+                title
+              }
+              ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Address {
+                __typename
+                number
+                street
+                title
+              }
             }
           }
         }
       }
     }
-  }
-`)
-  const contactInfos = data.wpgraphql.contactSection.contactInfo.contactInfos
+  `);
+  const contactInfos = data.wpgraphql.contactSection.contactInfo.contactInfos;
   return (
     <Grid
       gap={[10, null, 0]}
       columns={[1]}
-      sx={{ textAlign: 'center', bg: 'grey', p: [10, null, null, null, 14, 15], height: '100%' }}>
+      sx={{
+        textAlign: 'center',
+        bg: 'grey',
+        p: [10, null, null, null, 14, 15],
+        height: '100%',
+      }}
+    >
       {contactInfos.map((contactInfo, i) => {
         const typeName = contactInfo.__typename;
 
@@ -48,7 +54,9 @@ export const ContactInfo = () => {
             return (
               <Info key={i}>
                 <Title>{contactInfo.title}</Title>
-                <a href={`tel: ${contactInfo.telephonenumber}`}>{contactInfo.telephonenumber}</a>
+                <a href={`tel: ${contactInfo.telephonenumber}`}>
+                  {contactInfo.telephonenumber}
+                </a>
                 <Text>{contactInfo.open}</Text>
               </Info>
             );
@@ -56,7 +64,9 @@ export const ContactInfo = () => {
             return (
               <Info key={i}>
                 <Title>{contactInfo.title}</Title>
-                <a href={`mailto: ${contactInfo.emailaddress}`}>{contactInfo.emailaddress}</a>
+                <a href={`mailto: ${contactInfo.emailaddress}`}>
+                  {contactInfo.emailaddress}
+                </a>
                 <Text>{contactInfo.additionalinfo}</Text>
               </Info>
             );
@@ -74,27 +84,26 @@ export const ContactInfo = () => {
       })}
     </Grid>
   );
-}
+};
 
 const Info = styled.div`
   font-size: 15px;
-`
+`;
 
 const Title = styled.h5`
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 28px;
   &:after {
-    content: "";
+    content: '';
     width: 30px;
     height: 1px;
     background: #b4b4b4;
     display: block;
     margin: 5px auto;
   }
-`
+`;
 
 const Text = styled.p`
   margin: 5px 0 0;
-`
-
+`;

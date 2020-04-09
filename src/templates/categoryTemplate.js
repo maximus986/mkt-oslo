@@ -1,16 +1,17 @@
 import React from 'react';
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { Layout } from '../components/common/layout'
-import { Container } from '../components/core'
-import { parseContentWithLinks } from '../utils/index'
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import { Layout } from '../components/common/layout';
+import { Container } from '../components/core';
+import { parseContentWithLinks } from '../utils/index';
 
 const CategoryTemplate = props => {
-  const { data: {
-    wpgraphql: { category }
-  }
-  } = props
-  const { name, posts } = category
+  const {
+    data: {
+      wpgraphql: { category },
+    },
+  } = props;
+  const { name, posts } = category;
   return (
     <Layout>
       <h1>Category: {name}</h1>
@@ -25,7 +26,7 @@ const CategoryTemplate = props => {
       </Container>
     </Layout>
   );
-}
+};
 
 export default CategoryTemplate;
 
@@ -56,4 +57,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

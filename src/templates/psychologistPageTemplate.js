@@ -1,14 +1,15 @@
-import { graphql } from 'gatsby'
-import React from 'react'
-import { Layout } from '../components/common/layout'
-import { Container } from '../components/core'
+import { graphql } from 'gatsby';
+import React from 'react';
+import { Layout } from '../components/common/layout';
+import { Container } from '../components/core';
 
 const PsychologistPageTemplate = props => {
-  const { data: {
-    wpgraphql: { page }
-  }
-  } = props
-  const { slug } = page
+  const {
+    data: {
+      wpgraphql: { page },
+    },
+  } = props;
+  const { slug } = page;
   return (
     <Layout>
       <Container>
@@ -16,12 +17,11 @@ const PsychologistPageTemplate = props => {
         <h2>{slug}</h2>
         {/* <div>{parseContentWithLinks(content)}</div> */}
       </Container>
-    </Layout >
+    </Layout>
   );
-}
+};
 
 export default PsychologistPageTemplate;
-
 
 export const pageQuery = graphql`
   query GET_PSYCHOLOGIST_PAGE($id: ID!) {
@@ -35,9 +35,9 @@ export const pageQuery = graphql`
               title
             }
             ... on WPGraphQL_Page_Sections_Content_Welcome {
-                primaryinfo
-                secondaryinfo
-              }
+              primaryinfo
+              secondaryinfo
+            }
             ... on WPGraphQL_Page_Sections_Content_Psychologists {
               psychologist {
                 ... on WPGraphQL_Psychologist {
@@ -77,4 +77,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

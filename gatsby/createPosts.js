@@ -1,4 +1,4 @@
-const path = require(`path`)
+const path = require(`path`);
 module.exports = async ({ actions, graphql }) => {
   // Setup query
   const GET_POSTS = `
@@ -67,9 +67,9 @@ module.exports = async ({ actions, graphql }) => {
       }
     }
   }
-`
-  const { createPage } = actions
-  const allPosts = []
+`;
+  const { createPage } = actions;
+  const allPosts = [];
   // Create a function for getting pages
   const fetchPosts = async variables =>
     await graphql(GET_POSTS, variables).then(({ data }) => {
@@ -77,29 +77,28 @@ module.exports = async ({ actions, graphql }) => {
         wpgraphql: {
           posts: {
             nodes,
-            pageInfo: { hasNextPage, endCursor }
-          }
-        }
-      } = data
+            pageInfo: { hasNextPage, endCursor },
+          },
+        },
+      } = data;
 
       nodes.map(post => {
-        allPosts.push(post)
-      })
+        allPosts.push(post);
+      });
       if (hasNextPage) {
-        return fetchPosts({ first: variables.first, after: endCursor })
+        return fetchPosts({ first: variables.first, after: endCursor });
       }
-      return allPosts
-    })
+      return allPosts;
+    });
   // Map over all of the pages and call CreatePage
   await fetchPosts({ first: 100, after: null }).then(allPosts => {
-    const pageTemplate = path.resolve(`./src/templates/postTemplate.js`)
+    const pageTemplate = path.resolve(`./src/templates/postTemplate.js`);
     allPosts.map(post => {
       createPage({
         path: `/blogg/${post.uri}`,
         component: pageTemplate,
-        context: post
-      })
-    })
-  })
-
-}
+        context: post,
+      });
+    });
+  });
+};

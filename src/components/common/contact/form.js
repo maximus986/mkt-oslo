@@ -1,57 +1,59 @@
 /** @jsx jsx */
 import { jsx, useThemeUI, Grid } from 'theme-ui';
-import { useState } from "react";
-import { navigate } from "gatsby-link";
-import styled from '@emotion/styled'
+import { useState } from 'react';
+import { navigate } from 'gatsby-link';
+import styled from '@emotion/styled';
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
 }
 
 export const Form = () => {
-  const { theme: { colors } } = useThemeUI()
+  const {
+    theme: { colors },
+  } = useThemeUI();
   const defautltValues = {
     name: '',
     email: '',
     subject: '',
-    message: ''
-  }
+    message: '',
+  };
 
-  const [formValue, setFormValue] = useState(defautltValues)
+  const [formValue, setFormValue] = useState(defautltValues);
 
   const handleChange = e => {
-    e.persist()
+    e.persist();
     setFormValue(formValue => ({
       ...formValue,
-      [e.target.name]: e.target.value
-    })
-    )
-  }
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...formValue
-      })
+        'form-name': form.getAttribute('name'),
+        ...formValue,
+      }),
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error));
   };
 
-
   return (
-    <div sx={{
-      bg: 'grey150',
-      p: [10, null, null, null, 14, 15],
-      height: '100%'
-    }}>
+    <div
+      sx={{
+        bg: 'grey150',
+        p: [10, null, null, null, 14, 15],
+        height: '100%',
+      }}
+    >
       <Title>Kontakt oss</Title>
       <form
         name="contact"
@@ -65,8 +67,7 @@ export const Form = () => {
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
-            Don’t fill this out:{" "}
-            <input name="bot-field" onChange={handleChange} />
+            Don’t fill this out: <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
         <Grid columns={[1, '1fr 1fr', 1, null, '1fr 1fr']} gap={[null, 8]}>
@@ -77,7 +78,8 @@ export const Form = () => {
               placeholder="Fornavn"
               onChange={handleChange}
               value={formValue.name}
-              {...{ colors }} />
+              {...{ colors }}
+            />
           </FormControl>
           <FormControl>
             <Input
@@ -86,7 +88,8 @@ export const Form = () => {
               placeholder="Email"
               onChange={handleChange}
               value={formValue.email}
-              {...{ colors }} />
+              {...{ colors }}
+            />
           </FormControl>
         </Grid>
         <FormControl>
@@ -96,25 +99,29 @@ export const Form = () => {
             placeholder="Tema"
             onChange={handleChange}
             value={formValue.subject}
-            {...{ colors }} />
+            {...{ colors }}
+          />
         </FormControl>
         <FormControl>
-          <Input as="textarea"
+          <Input
+            as="textarea"
             name="message"
             placeholder="Beskjed"
             onChange={handleChange}
             value={formValue.message}
             {...{ colors }}
-            sx={{ height: '100px', resize: 'none' }} />
+            sx={{ height: '100px', resize: 'none' }}
+          />
         </FormControl>
         <FormControl sx={{ m: 0 }}>
-          <button type="submit" sx={{ variant: 'buttons.secondary' }}>Send</button>
+          <button type="submit" sx={{ variant: 'buttons.secondary' }}>
+            Send
+          </button>
         </FormControl>
       </form>
-    </div >
+    </div>
   );
-}
-
+};
 
 const Title = styled.h5`
   text-transform: uppercase;
@@ -122,14 +129,14 @@ const Title = styled.h5`
   line-height: 28px;
   margin-bottom: 40px;
   &:after {
-    content: "";
+    content: '';
     width: 30px;
     height: 1px;
     background: #b4b4b4;
     display: block;
     margin: 5px auto;
   }
-`
+`;
 
 const Input = styled.input`
   font-family: 'Lato';
@@ -155,8 +162,8 @@ const Input = styled.input`
     font-weight: bold;
     font-size: 15px;
   }
-`
+`;
 
 const FormControl = styled.div`
   margin-bottom: 40px;
-`
+`;

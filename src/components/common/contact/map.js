@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 
-
 export const Map = () => {
   const { staticMap } = useStaticQuery(graphql`
     {
@@ -18,8 +17,13 @@ export const Map = () => {
         }
       }
     }
-  `)
-  const { mapUrl, childFile: { childImageSharp: { fluid } } } = staticMap
+  `);
+  const {
+    mapUrl,
+    childFile: {
+      childImageSharp: { fluid },
+    },
+  } = staticMap;
   return (
     <div sx={{ height: ['400px', '100%'] }}>
       <a
@@ -30,11 +34,12 @@ export const Map = () => {
           border: 'none',
           '&:hover': {
             bg: 'transparent',
-            border: 'none'
-          }
-        }}>
-        <Image fluid={fluid} alt="Map" sx={{ height: '100%', }} />
+            border: 'none',
+          },
+        }}
+      >
+        <Image fluid={fluid} alt="Map" sx={{ height: '100%' }} />
       </a>
     </div>
-  )
-}
+  );
+};

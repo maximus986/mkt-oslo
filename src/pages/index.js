@@ -1,16 +1,16 @@
-import React from 'react'
-import { Layout } from '../components/common/layout'
-import SEO from '../components/common/seo'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
-import { graphql } from 'gatsby'
-import { Hero } from '../components/home/hero'
-import { LearnMore } from '../components/home/learnMore'
-import { Quotes } from '../components/home/quotes'
-import { About } from '../components/home/about'
-import { PsychologistInfo } from '../components/home/psychologistInfo'
-import { Welcome } from '../components/home/welcome'
-import { PostListSection } from '../components/home/postListSection'
-import { Contact } from '../components/common/contact/contact'
+import React from 'react';
+import { Layout } from '../components/common/layout';
+import SEO from '../components/common/seo';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { graphql } from 'gatsby';
+import { Hero } from '../components/home/hero';
+import { LearnMore } from '../components/home/learnMore';
+import { Quotes } from '../components/home/quotes';
+import { About } from '../components/home/about';
+import { PsychologistInfo } from '../components/home/psychologistInfo';
+import { Welcome } from '../components/home/welcome';
+import { PostListSection } from '../components/home/postListSection';
+import { Contact } from '../components/common/contact/contact';
 
 export const PAGE_QUERY = graphql`
   {
@@ -44,11 +44,12 @@ export const PAGE_QUERY = graphql`
   }
 `;
 
-
 const IndexPage = ({ data }) => {
-  const { siteMetadata: { title } } = useSiteMetadata()
-  const content = data.wpgraphql.pageBy.sections.content
-  const menuItems = data.wpgraphql.menu.menuItems
+  const {
+    siteMetadata: { title },
+  } = useSiteMetadata();
+  const content = data.wpgraphql.pageBy.sections.content;
+  const menuItems = data.wpgraphql.menu.menuItems;
   return (
     <Layout>
       <SEO title={`Hjem - ${title}`} />
@@ -79,7 +80,7 @@ const IndexPage = ({ data }) => {
       })}
       <Contact />
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

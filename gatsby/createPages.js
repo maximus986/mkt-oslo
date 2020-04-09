@@ -1,5 +1,5 @@
-const path = require(`path`)
-const PAGES_TO_CREATE = [new RegExp(`behandling/?.*`)] // TODO Delete regex once creation of all pages from WP is resolved
+const path = require(`path`);
+const PAGES_TO_CREATE = [new RegExp(`behandling/?.*`)]; // TODO Delete regex once creation of all pages from WP is resolved
 module.exports = async ({ actions, graphql }) => {
   // Setup query
   const GET_PAGES = `
@@ -44,9 +44,9 @@ module.exports = async ({ actions, graphql }) => {
       }
     }
   }
-`
-  const { createPage } = actions
-  const allPages = []
+`;
+  const { createPage } = actions;
+  const allPages = [];
   // Create a function for getting pages
   const fetchPages = async variables =>
     await graphql(GET_PAGES, variables).then(({ data }) => {
@@ -54,40 +54,41 @@ module.exports = async ({ actions, graphql }) => {
         wpgraphql: {
           pages: {
             nodes,
-            pageInfo: { hasNextPage, endCursor }
-          }
-        }
-      } = data
+            pageInfo: { hasNextPage, endCursor },
+          },
+        },
+      } = data;
 
       nodes.map(page => {
-        allPages.push(page)
-      })
+        allPages.push(page);
+      });
       if (hasNextPage) {
-        return fetchPages({ first: variables.first, after: endCursor })
+        return fetchPages({ first: variables.first, after: endCursor });
       }
-      return allPages
-    })
+      return allPages;
+    });
   // Map over all of the pages and call CreatePage
   await fetchPages({ first: 100, after: null }).then(allPages => {
     // const filteredAllPages = allPages.filter(page => (page.uri.match(behandlingRegex) || page.uri.match(psykologeneRegex)))
     const filteredAllPages = allPages.filter(({ uri }) => {
-      let toCreatePage = null
+      let toCreatePage = null;
       PAGES_TO_CREATE.forEach(pageToCreateRegex => {
         if (uri.match(pageToCreateRegex)) {
-          toCreatePage = true
+          toCreatePage = true;
         }
-      })
-      return toCreatePage
-    })
-    const behandlingPageTemplate = path.resolve(`./src/templates/behandlingPagesTemplate.js`)
+      });
+      return toCreatePage;
+    });
+    const behandlingPageTemplate = path.resolve(
+      `./src/templates/behandlingPagesTemplate.js`,
+    );
 
     filteredAllPages.map(page => {
       createPage({
         path: `/${page.uri}`,
         component: behandlingPageTemplate,
-        context: page
-      })
-    })
-  })
-
-}
+        context: page,
+      });
+    });
+  });
+};

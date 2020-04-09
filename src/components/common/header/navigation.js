@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
 import { jsx, useThemeUI } from 'theme-ui';
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import { createLocalLink } from '../../../utils/index'
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import { createLocalLink } from '../../../utils/index';
 
 export const Navigation = ({ showMenu, onNavigate }) => {
   const {
@@ -22,12 +22,12 @@ export const Navigation = ({ showMenu, onNavigate }) => {
         }
       }
     }
-  `)
-  const { wpgraphql:
-    { menu:
-      { menuItems }
-    }
-  } = data
+  `);
+  const {
+    wpgraphql: {
+      menu: { menuItems },
+    },
+  } = data;
 
   return (
     <NavigationContainer>
@@ -37,16 +37,20 @@ export const Navigation = ({ showMenu, onNavigate }) => {
           m: 0,
           transition: 'header',
           height: showMenu ? `${space[19]}px` : '0',
-          maxHeight: `${space[22]}px`
+          maxHeight: `${space[22]}px`,
         }}
         open={showMenu}
       >
-        {menuItems.nodes.map((link) => (
-          <ListItem key={link.id} {...{ colors }} sx={{
-            transition: 'link',
-            ml: [0, 0, 0, 10, 12],
-            mb: 0
-          }}>
+        {menuItems.nodes.map(link => (
+          <ListItem
+            key={link.id}
+            {...{ colors }}
+            sx={{
+              transition: 'link',
+              ml: [0, 0, 0, 10, 12],
+              mb: 0,
+            }}
+          >
             <NavLink
               to={createLocalLink(link.url)}
               activeClassName="active"
@@ -63,9 +67,9 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                   color: 'primary',
                   bg: 'transparent',
                   '&:before': {
-                    right: ['100%', null, null, 0]
-                  }
-                }
+                    right: ['100%', null, null, 0],
+                  },
+                },
               }}
               onClick={onNavigate}
               {...{ colors }}
@@ -117,7 +121,7 @@ const NavLink = styled(Link)`
   overflow: hidden;
   border: none;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     left: 0;

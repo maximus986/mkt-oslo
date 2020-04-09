@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const HeadingLine = styled.span`
   display: inline-block;
@@ -10,11 +10,11 @@ export const HeadingLine = styled.span`
   top: -6px;
   margin-bottom: 4px;
   &:after {
-    content: "";
+    content: '';
     width: 40px;
     height: 1px;
     display: block;
     background: #ccc;
     margin: 3px auto;
   }
-`
+`;

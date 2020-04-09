@@ -1,10 +1,12 @@
 /** @jsx jsx */
-import { jsx, Grid } from 'theme-ui'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Post } from './post'
+import { jsx, Grid } from 'theme-ui';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Post } from './post';
 
 export const PostList = ({ numberOfPosts }) => {
-  const { wpgraphql: { posts } } = useStaticQuery(graphql`
+  const {
+    wpgraphql: { posts },
+  } = useStaticQuery(graphql`
     {
       wpgraphql {
         posts {
@@ -34,22 +36,17 @@ export const PostList = ({ numberOfPosts }) => {
         }
       }
     }
-  `)
+  `);
   return (
-    < Grid
-      gap={[10, null, null, 15]}
-      columns={[1, '1fr 1fr', null, '1fr 1fr 1fr']}>
-      {
-        posts.nodes.map((post, i) => {
-          if (!numberOfPosts) {
-            return <Post key={post.id} post={post} />
-          }
-          if (numberOfPosts && i <= numberOfPosts - 1) {
-            return <Post key={post.id} post={post} />
-          }
-        })
-      }
+    <Grid gap={[10, null, null, 15]} columns={[1, '1fr 1fr', null, '1fr 1fr 1fr']}>
+      {posts.nodes.map((post, i) => {
+        if (!numberOfPosts) {
+          return <Post key={post.id} post={post} />;
+        }
+        if (numberOfPosts && i <= numberOfPosts - 1) {
+          return <Post key={post.id} post={post} />;
+        }
+      })}
     </Grid>
   );
-}
-
+};

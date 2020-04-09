@@ -1,3 +1,3 @@
 export const config = {
-  wordPressUrl: `http://staging.metakognitivterapi-oslo.no/`
-}
+  wordPressUrl: `http://staging.metakognitivterapi-oslo.no/`,
+};

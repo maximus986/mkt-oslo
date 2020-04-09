@@ -1,6 +1,3 @@
-require("typeface-lato")
-require("typeface-montserrat")
-require("typeface-nothing-you-could-do")
-
-
-
+require('typeface-lato');
+require('typeface-montserrat');
+require('typeface-nothing-you-could-do');

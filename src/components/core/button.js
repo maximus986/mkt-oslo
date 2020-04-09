@@ -1,16 +1,9 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Link } from '../core/link'
+import { jsx } from 'theme-ui';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Link } from '../core/link';
 
-export const Button = ({
-  variant = 'primary',
-  to,
-  icon,
-  label,
-  children,
-  ...props
-}) => {
+export const Button = ({ variant = 'primary', to, icon, label, children, ...props }) => {
   const data = useStaticQuery(graphql`
     {
       wpgraphql {
@@ -21,8 +14,14 @@ export const Button = ({
         }
       }
     }
-  `)
-  const { wpgraphql: { bestillTimeUrl: { url: { href } } } } = data
+  `);
+  const {
+    wpgraphql: {
+      bestillTimeUrl: {
+        url: { href },
+      },
+    },
+  } = data;
   return (
     <button
       {...props}
@@ -32,11 +31,11 @@ export const Button = ({
       }}
     >
       <Link to={to ? to : href}>
-        {
-          icon && <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
-        }
+        {icon && (
+          <span sx={{ mr: '4', display: 'flex', placeItems: 'center' }}>{icon}</span>
+        )}
         <span>{label}</span>
       </Link>
     </button>
-  )
-}
+  );
+};

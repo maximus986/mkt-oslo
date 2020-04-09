@@ -1,11 +1,10 @@
 /** @jsx jsx */
-import { jsx, Grid } from 'theme-ui'
-import { graphql } from 'gatsby'
-import { SectionContainer } from '../core'
-import { Container } from '../core'
-import Image from 'gatsby-image'
-import { parseContentWithLinks } from '../../utils/index'
-
+import { jsx, Grid } from 'theme-ui';
+import { graphql } from 'gatsby';
+import { SectionContainer } from '../core';
+import { Container } from '../core';
+import Image from 'gatsby-image';
+import { parseContentWithLinks } from '../../utils/index';
 
 export const fragment = graphql`
   fragment AboutSection on WPGraphQL_Page_Sections_Content_About {
@@ -22,9 +21,17 @@ export const fragment = graphql`
       }
     }
   }
-`
+`;
 
-export const About = ({ description, title, image: { imageFile: { childImageSharp: { fluid } } } }) => {
+export const About = ({
+  description,
+  title,
+  image: {
+    imageFile: {
+      childImageSharp: { fluid },
+    },
+  },
+}) => {
   return (
     <SectionContainer title={title}>
       <Container>
@@ -40,6 +47,5 @@ export const About = ({ description, title, image: { imageFile: { childImageShar
         </Grid>
       </Container>
     </SectionContainer>
-  )
-}
-
+  );
+};

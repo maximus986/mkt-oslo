@@ -4,12 +4,16 @@ import { parseContentWithLinks } from '../utils/index';
 import { Button } from './core/button';
 
 export const Psychologist = ({ psychologist: psychologistObj }) => {
-  const { psychologist } = psychologistObj
+  const { psychologist } = psychologistObj;
   const {
     shortdescription: shortDescription,
     name,
-    avatarimage: { imageFile: { childImageSharp: { fluid } } }
-  } = psychologist
+    avatarimage: {
+      imageFile: {
+        childImageSharp: { fluid },
+      },
+    },
+  } = psychologist;
   return (
     <>
       <figure>
@@ -22,5 +26,4 @@ export const Psychologist = ({ psychologist: psychologistObj }) => {
       </div>
     </>
   );
-}
-
+};

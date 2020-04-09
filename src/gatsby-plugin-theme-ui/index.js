@@ -25,8 +25,8 @@ export default {
         text: '#fff',
         background: '#000',
         primary: '#0cf',
-      }
-    }
+      },
+    },
   },
   buttons: {
     common: {
@@ -48,18 +48,18 @@ export default {
       borderStyle: 'solid',
       mx: 'auto',
       '&:focus': {
-        outline: 'none'
+        outline: 'none',
       },
       a: {
         border: 'none',
         lineHeight: '30px',
         transition: 'none',
         display: 'flex',
-        placeItems: 'center'
+        placeItems: 'center',
       },
       'a:hover': {
         border: 'none',
-        bg: 'transparent'
+        bg: 'transparent',
       },
     },
     primary: {
@@ -68,13 +68,13 @@ export default {
       bg: 'primary',
       borderColor: 'primary',
       '&:hover': {
-        bg: 'primaryDarker'
-      }
+        bg: 'primaryDarker',
+      },
     },
     secondary: {
       variant: 'buttons.common',
       bg: 'secondary',
-      color: 'white'
+      color: 'white',
     },
     internal: {
       variant: 'buttons.common',
@@ -83,8 +83,8 @@ export default {
       color: 'grey400',
       '&:hover': {
         color: 'grey400',
-        bg: 'grey'
-      }
+        bg: 'grey',
+      },
     },
     outline: {
       variant: 'buttons.common',
@@ -93,9 +93,9 @@ export default {
       borderColor: 'primary',
       '&:hover': {
         color: 'white',
-        bg: 'primary'
-      }
-    }
+        bg: 'primary',
+      },
+    },
   },
   fonts: {
     body: 'Lato,Roboto, "Helvetica Neue", sans-serif',
@@ -103,7 +103,31 @@ export default {
     author: 'Nothing You Could Do',
   },
   breakpoints: ['576px', '768px', '1030px', '1280px', '1600px'],
-  space: [0, 3, 5, 8, 10, 16, 18, 20, 23, 25, 30, 40, 45, 47, 48, 60, 90, 128, 135, 256, 301, 512, 616],
+  space: [
+    0,
+    3,
+    5,
+    8,
+    10,
+    16,
+    18,
+    20,
+    23,
+    25,
+    30,
+    40,
+    45,
+    47,
+    48,
+    60,
+    90,
+    128,
+    135,
+    256,
+    301,
+    512,
+    616,
+  ],
   fontSizes: [13, 15, 16, 18, 20, 24, 28, 32, 36, 40, 48, 60, 96],
   fontWeights: {
     body: 300,
@@ -136,7 +160,7 @@ export default {
       fontFamily: 'body',
       fontWeight: 'body',
       m: 0, // 0
-      lineHeight: 'reset'
+      lineHeight: 'reset',
     },
     heading3: {
       variant: 'text.heading',
@@ -144,7 +168,7 @@ export default {
       fontFamily: 'body',
       fontWeight: 'body',
       m: 0, // 0
-      lineHeight: 'reset'
+      lineHeight: 'reset',
     },
     heading4: {
       variant: 'text.heading',
@@ -160,7 +184,7 @@ export default {
     },
     paragraph: {
       mt: 0, // 0
-      mb: 7 // 20
+      mb: 7, // 20
     },
     list: {
       pl: 7, // 20
@@ -169,7 +193,7 @@ export default {
     },
     listItem: {
       mb: 2, // 5
-      listStyleType: 'circle'
+      listStyleType: 'circle',
     },
     link: {
       bg: 'transparent',
@@ -182,9 +206,8 @@ export default {
       '&:hover': {
         bg: 'rgba(0, 0, 0, 0.05)',
         borderColor: 'mainDark',
-      }
+      },
     },
-
   },
   styles: {
     root: {
@@ -193,41 +216,40 @@ export default {
       fontWeight: 'body',
       fontSize: 3,
       h1: {
-        variant: 'text.heading1'
+        variant: 'text.heading1',
       },
       h2: {
-        variant: 'text.heading2'
+        variant: 'text.heading2',
       },
       h3: {
-        variant: 'text.heading3'
+        variant: 'text.heading3',
       },
       h4: {
-        variant: 'text.heading4'
+        variant: 'text.heading4',
       },
       h5: {
-        variant: 'text.heading5'
+        variant: 'text.heading5',
       },
       p: {
-        variant: 'text.paragraph'
+        variant: 'text.paragraph',
       },
       ul: {
-        variant: 'text.list'
+        variant: 'text.list',
       },
       li: {
-        variant: 'text.listItem'
+        variant: 'text.listItem',
       },
       a: {
-        variant: 'text.link'
+        variant: 'text.link',
       },
-
     },
   },
   radii: {
-    reset: 0
+    reset: 0,
   },
   transition: {
     link: '0.2s linear',
     header: '0.3s linear',
-    imageLink: '0.4s linear'
-  }
-}
+    imageLink: '0.4s linear',
+  },
+};

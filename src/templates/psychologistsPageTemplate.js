@@ -1,57 +1,54 @@
 /** @jsx jsx */
-import { graphql } from 'gatsby'
-import { Grid, jsx } from 'theme-ui'
-import { Layout } from '../components/common/layout'
-import SEO from '../components/common/seo'
-import { Container, SectionContainer } from '../components/core'
-import { Psychologist } from '../components/psychologist'
-import { parseContentWithLinks } from '../utils'
-
+import { graphql } from 'gatsby';
+import { Grid, jsx } from 'theme-ui';
+import { Layout } from '../components/common/layout';
+import SEO from '../components/common/seo';
+import { Container, SectionContainer } from '../components/core';
+import { Psychologist } from '../components/psychologist';
+import { parseContentWithLinks } from '../utils';
 
 const PsychologistsPagesTemplate = props => {
-  const { data: {
-    wpgraphql: { page }
-  }
-  } = props
-  const { sections: { content } } = page
-  const pageTitle = content.filter(item => item.title)[0].title
-  const intro = content.filter(item => item.primaryinfo)[0]
-  const psychologists = content.filter(item => item.psychologist)
+  const {
+    data: {
+      wpgraphql: { page },
+    },
+  } = props;
+  const {
+    sections: { content },
+  } = page;
+  const pageTitle = content.filter(item => item.title)[0].title;
+  const intro = content.filter(item => item.primaryinfo)[0];
+  const psychologists = content.filter(item => item.psychologist);
   // console.log(psychologists)
 
   return (
     <Layout>
-      <SEO title='Psykologene' />
+      <SEO title="Psykologene" />
       <Container>
         <SectionContainer title={pageTitle} as="h1" />
-        <Grid
-          gap={[null, null, 10, 15]}
-          columns={[1, null, '1fr 1fr']}>
+        <Grid gap={[null, null, 10, 15]} columns={[1, null, '1fr 1fr']}>
           <div>{parseContentWithLinks(intro.primaryinfo)}</div>
           <div>{parseContentWithLinks(intro.secondaryinfo)}</div>
         </Grid>
         <div>
-          {
-            psychologists.map(({ psychologist }) => {
-              return (
-                <Grid
-                  gap={[null, null, 10, 15]}
-                  columns={[1, null, '1fr 1fr']}
-                  key={psychologist.id}>
-                  <Psychologist psychologist={psychologist} />
-                </Grid>
-              )
-            })
-          }
+          {psychologists.map(({ psychologist }) => {
+            return (
+              <Grid
+                gap={[null, null, 10, 15]}
+                columns={[1, null, '1fr 1fr']}
+                key={psychologist.id}
+              >
+                <Psychologist psychologist={psychologist} />
+              </Grid>
+            );
+          })}
         </div>
-
       </Container>
-    </Layout >
+    </Layout>
   );
-}
+};
 
 export default PsychologistsPagesTemplate;
-
 
 export const pageQuery = graphql`
   query GET_PSYCHOLOGISTS_PAGE($id: ID!) {
@@ -65,9 +62,9 @@ export const pageQuery = graphql`
               title
             }
             ... on WPGraphQL_Page_Sections_Content_Welcome {
-                primaryinfo
-                secondaryinfo
-              }
+              primaryinfo
+              secondaryinfo
+            }
             ... on WPGraphQL_Page_Sections_Content_Psychologists {
               psychologist {
                 ... on WPGraphQL_Psychologist {
@@ -107,4 +104,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
