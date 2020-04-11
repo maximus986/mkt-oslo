@@ -3,6 +3,7 @@ import { jsx, useThemeUI, Grid } from 'theme-ui';
 import { useState } from 'react';
 import { navigate } from 'gatsby-link';
 import styled from '@emotion/styled';
+import { HeadingLine } from '../../core';
 
 function encode(data) {
   return Object.keys(data)
@@ -52,9 +53,11 @@ export const Form = () => {
         bg: 'grey150',
         p: [10, null, null, null, 14, 15],
         height: '100%',
+        textAlign: 'center',
       }}
     >
-      <Title>Kontakt oss</Title>
+      <h2 sx={{ fontSize: [7, 5, null, 7], fontFamily: 'heading' }}>Send melding</h2>
+      <HeadingLine />
       <form
         name="contact"
         method="post"
@@ -122,21 +125,6 @@ export const Form = () => {
     </div>
   );
 };
-
-const Title = styled.h5`
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 28px;
-  margin-bottom: 40px;
-  &:after {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: #b4b4b4;
-    display: block;
-    margin: 5px auto;
-  }
-`;
 
 const Input = styled.input`
   font-family: 'Lato';
