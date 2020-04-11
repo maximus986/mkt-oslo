@@ -11,22 +11,22 @@ export const ContactInfo = () => {
           contactInfo {
             contactInfos: contactinfo {
               ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Telephone {
-                __typename
-                open
-                telephonenumber
                 title
+                telephonenumber
               }
               ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Email {
-                __typename
                 additionalinfo
                 emailaddress
                 title
               }
               ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Address {
-                __typename
                 number
                 street
                 title
+              }
+              ... on WPGraphQL_ContactSection_Contactinfo_Contactinfo_Openinghours {
+                title
+                workinghours
               }
             }
           }
@@ -57,7 +57,6 @@ export const ContactInfo = () => {
                 <a href={`tel: ${contactInfo.telephonenumber}`}>
                   {contactInfo.telephonenumber}
                 </a>
-                <Text>{contactInfo.open}</Text>
               </Info>
             );
           case 'WPGraphQL_ContactSection_Contactinfo_Contactinfo_Email':
@@ -76,6 +75,13 @@ export const ContactInfo = () => {
                 <Title>{contactInfo.title}</Title>
                 <Text sx={{ mt: 0 }}>{contactInfo.street}</Text>
                 <Text>{contactInfo.number}</Text>
+              </Info>
+            );
+          case 'WPGraphQL_ContactSection_Contactinfo_Contactinfo_Openinghours':
+            return (
+              <Info key={i}>
+                <Title>{contactInfo.title}</Title>
+                <Text sx={{ mt: 0 }}>{contactInfo.workinghours}</Text>
               </Info>
             );
           default:
