@@ -1,11 +1,11 @@
 import { graphql } from 'gatsby';
-import { Grid, jsx } from 'theme-ui';
 import React from 'react';
-import { Layout } from '../components/common/layout';
-import { Container, SectionContainer } from '../components/core';
-import SEO from '../components/common/seo';
-import { Psychologist } from '../components/psychologist';
+import { Grid } from 'theme-ui';
 import { Contact } from '../components/common/contact/contact';
+import { Layout } from '../components/common/layout';
+import SEO from '../components/common/seo';
+import { Container, SectionContainer } from '../components/core';
+import { Psychologist } from '../components/psychologist';
 
 const PsychologistPageTemplate = props => {
   const {

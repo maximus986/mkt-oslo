@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import Image from 'gatsby-image';
 import React from 'react';
+import Image from 'gatsby-image';
+import { jsx } from 'theme-ui';
 import { parseContentWithLinks } from '../utils/index';
 import { Button } from './core/button';
-import styled from '@emotion/styled';
 
 export const Psychologist = ({ psychologist: psychologistObj, isPage }) => {
   const { psychologist } = psychologistObj;

@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { jsx, Flex } from 'theme-ui';
-import React from 'react';
 import styled from '@emotion/styled';
+import { Flex, jsx } from 'theme-ui';
 import { Container } from './core/index';
 
 export const PostHeader = ({ title, subtitle, children }) => {
@@ -14,7 +13,7 @@ export const PostHeader = ({ title, subtitle, children }) => {
         pb: [10, 11, null, 11],
         textAlign: 'center',
         bg: '#fafafa',
-        mb: [0, null, null, 16],
+        mb: [0, null, 13, 16],
       }}
     >
       <Container>
