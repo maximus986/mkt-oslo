@@ -242,6 +242,30 @@ export default {
       a: {
         variant: 'text.link',
       },
+      table: {
+        fontSize: [1, 3],
+        width: '100%',
+        borderCollapse: 'separate',
+        borderSpacing: 0,
+        mx: 0,
+        my: 15,
+      },
+      th: {
+        textAlign: 'left',
+        borderWidth: '1px',
+        borderBottomStyle: 'solid',
+        borderColor: 'grey700',
+        py: 4,
+        px: [null, 5],
+      },
+      td: {
+        textAlign: 'left',
+        borderWidth: '1px',
+        borderBottomStyle: 'solid',
+        borderColor: 'grey700',
+        py: 4,
+        px: [null, 5],
+      },
     },
   },
   radii: {
