@@ -1,9 +1,7 @@
 /** @jsx jsx */
 import { jsx, Flex } from 'theme-ui';
-import { ContactInfo } from './contactInfo';
-import { SectionContainer, Container } from '../../core/index';
-import { Map } from '../contact/map';
-import { Form } from '../contact/form';
+import { SectionContainer } from '../../core/index';
+import { Map, ContactInfo, Form } from './index';
 
 export const Contact = () => {
   return (
