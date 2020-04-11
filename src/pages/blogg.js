@@ -13,6 +13,8 @@ const Blogg = () => {
   return (
     <Layout>
       <SEO title={`Blogg - ${title}`} />
+      {/* NOTE: Title and subtitle are hardcoded because there is no blog page in WP */}
+      {/* NOTE: All the fetching and styling of the blogs are done in PostList component */}
       <SectionContainer title="blogg" subtitle="Meta kognitivterapi Oslo" />
       <Container>
         <PostList />
